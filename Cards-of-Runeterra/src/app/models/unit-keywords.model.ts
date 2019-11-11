@@ -1,4 +1,4 @@
-export enum UnitFeature {
+export enum UnitKeywords {
   Ephemeral = 'ephemeral',
   Challenger = 'challenger',
   Fearsome = 'fearsome',
@@ -9,5 +9,7 @@ export enum UnitFeature {
   Overwhelm = 'overwhelm',
   Regeneration = 'regeneration',
   Lifesteal = 'lifesteal',
-  Barrier = 'barrier'
+  Barrier = 'barrier',
+  DoubleAttack = 'double-attack',
+  Fleeting = 'fleeting'
 }

@@ -6,9 +6,12 @@
         <p class="title">Type</p>
 
         <div class="types-container">
-          <img class="card-type-icon" src="assets/types/champion.png" (click)="switchType(CardType.Champion)" [class.selected]="type === CardType.Champion">
-          <img class="card-type-icon" src="assets/types/follower.png" (click)="switchType(CardType.Follower)" [class.selected]="type === CardType.Follower">
-          <img class="card-type-icon" src="assets/types/spell.png" (click)="switchType(CardType.Spell)" [class.selected]="type === CardType.Spell">
+          <img class="card-type-icon" src="assets/types/champion.png" (click)="switchType(CardType.Champion)"
+            [class.selected]="type === CardType.Champion">
+          <img class="card-type-icon" src="assets/types/follower.png" (click)="switchType(CardType.Follower)"
+            [class.selected]="type === CardType.Follower">
+          <img class="card-type-icon" src="assets/types/spell.png" (click)="switchType(CardType.Spell)"
+            [class.selected]="type === CardType.Spell">
         </div>
       </div>
       <div class="stats">
@@ -46,10 +49,64 @@
         </div>
       </div>
 
+      <div class="keywords">
+        <div *ngIf="type === CardType.Spell; else Unit">
+          <div class="keywords-container">
+            <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
+              (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeyword === SpellKeywords.Burst">
+            <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
+              (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeyword === SpellKeywords.Slow">
+            <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
+              (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeyword === SpellKeywords.Fast">
+          </div>
+        </div>
+
+        <ng-template #Unit>
+          <div class="keywords-container">
+            <img class="keyword-type-icon" src="assets/keywords/icons/regeneration.png"
+              (click)="switchSpellKeyword(UnitKeywords.Regeneration)"
+              [class.selected]="spellKeyword === UnitKeywords.Regeneration">
+            <img class="keyword-type-icon" src="assets/keywords/icons/lifesteal.png"
+              (click)="switchSpellKeyword(UnitKeywords.Lifesteal)"
+              [class.selected]="spellKeyword === UnitKeywords.Lifesteal">
+            <img class="keyword-type-icon" src="assets/keywords/icons/challenger.png"
+              (click)="switchSpellKeyword(UnitKeywords.Challenger)"
+              [class.selected]="spellKeyword === UnitKeywords.Challenger">
+            <img class="keyword-type-icon" src="assets/keywords/icons/fearsome.png"
+              (click)="switchSpellKeyword(UnitKeywords.Fearsome)"
+              [class.selected]="spellKeyword === UnitKeywords.Fearsome">
+            <img class="keyword-type-icon" src="assets/keywords/icons/quick-attack.png"
+              (click)="switchSpellKeyword(UnitKeywords.QuickAttack)"
+              [class.selected]="spellKeyword === UnitKeywords.QuickAttack">
+            <img class="keyword-type-icon" src="assets/keywords/icons/elusive.png"
+              (click)="switchSpellKeyword(UnitKeywords.Elusive)"
+              [class.selected]="spellKeyword === UnitKeywords.Elusive">
+            <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
+              (click)="switchSpellKeyword(UnitKeywords.Overwhelm)"
+              [class.selected]="spellKeyword === UnitKeywords.Overwhelm">
+            <img class="keyword-type-icon" src="assets/keywords/icons/double-attack.png"
+              (click)="switchSpellKeyword(UnitKeywords.DoubleAttack)"
+              [class.selected]="spellKeyword === UnitKeywords.DoubleAttack">
+            <img class="keyword-type-icon" src="assets/keywords/icons/ephemeral.png"
+              (click)="switchSpellKeyword(UnitKeywords.Ephemeral)"
+              [class.selected]="spellKeyword === UnitKeywords.Ephemeral">
+            <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
+              (click)="switchSpellKeyword(UnitKeywords.Fleeting)"
+              [class.selected]="spellKeyword === UnitKeywords.Fleeting">
+            <img class="keyword-type-icon" src="assets/keywords/icons/cant-block.png"
+              (click)="switchSpellKeyword(UnitKeywords.CantBlock)"
+              [class.selected]="spellKeyword === UnitKeywords.CantBlock">
+            <img class="keyword-type-icon" src="assets/keywords/icons/barrier.png"
+              (click)="switchSpellKeyword(UnitKeywords.Barrier)"
+              [class.selected]="spellKeyword === UnitKeywords.Barrier">
+          </div>
+        </ng-template>
+      </div>
+
       <div class="name">
         <p class="title">Card title</p>
         <label>
-          <input class="name-input"  [(ngModel)]="cardTitle">
+          <input class="name-input" [(ngModel)]="cardTitle">
         </label>
       </div>
 
@@ -64,24 +121,45 @@
         <p class="title">Region</p>
 
         <div class="regions-container">
-          <img class="region-icon" src="assets/regions/icon-demacia.png" (click)="switchRegion(Region.Demacia)" [class.selected]="region === Region.Demacia">
-          <img class="region-icon" src="assets/regions/icon-freljord.png" (click)="switchRegion(Region.Freljord)" [class.selected]="region === Region.Freljord">
-          <img class="region-icon" src="assets/regions/icon-ionia.png" (click)="switchRegion(Region.Ionia)" [class.selected]="region === Region.Ionia">
-          <img class="region-icon" src="assets/regions/icon-noxus.png" (click)="switchRegion(Region.Noxus)" [class.selected]="region === Region.Noxus">
-          <img class="region-icon" src="assets/regions/icon-piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)" [class.selected]="region === Region.PiltoverZaun">
-          <img class="region-icon" src="assets/regions/icon-shadowisles.png" (click)="switchRegion(Region.ShadowIsles)" [class.selected]="region === Region.ShadowIsles">
+          <img class="region-icon" src="assets/regions/demacia.png" (click)="switchRegion(Region.Demacia)"
+            [class.selected]="region === Region.Demacia">
+          <img class="region-icon" src="assets/regions/freljord.png" (click)="switchRegion(Region.Freljord)"
+            [class.selected]="region === Region.Freljord">
+          <img class="region-icon" src="assets/regions/ionia.png" (click)="switchRegion(Region.Ionia)"
+            [class.selected]="region === Region.Ionia">
+          <img class="region-icon" src="assets/regions/noxus.png" (click)="switchRegion(Region.Noxus)"
+            [class.selected]="region === Region.Noxus">
+          <img class="region-icon" src="assets/regions/piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)"
+            [class.selected]="region === Region.PiltoverZaun">
+          <img class="region-icon" src="assets/regions/shadowisles.png" (click)="switchRegion(Region.ShadowIsles)"
+            [class.selected]="region === Region.ShadowIsles">
         </div>
       </div>
 
       <div class="rarities">
         <p class="title">Rarity</p>
 
+        <div class="rarity-container">
+          <img class="rarity-icon" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
+            [class.selected]="rarity === Rarity.Champion" *ngIf="type == CardType.Champion">
+          <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.None)"
+            [class.selected]="rarity === Rarity.None">
+          <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.Common)"
+            [class.selected]="rarity === Rarity.Common" *ngIf="type != CardType.Champion">
+          <img class="rarity-icon" src="assets/rarities/rare.png" (click)="switchRarity(Rarity.Rare)"
+            [class.selected]="rarity === Rarity.Rare" *ngIf="type != CardType.Champion">
+          <img class="rarity-icon" src="assets/rarities/epic.png" (click)="switchRarity(Rarity.Epic)"
+            [class.selected]="rarity === Rarity.Epic" *ngIf="type != CardType.Champion">
+        </div>
       </div>
     </div>
 
     <div class="card-container">
       <div class="card">
-        <img class="card-base" [src]="'assets/cards/' + type + '.png'">
+        <img class="card-base" [src]="'assets/cards/' + type +
+        (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
+        rarity +
+        '.png'">
         <p class="mana">{{ mana }}</p>
         <p class="attack" *ngIf="type != CardType.Spell">{{ attack }}</p>
         <p class="health" *ngIf="type != CardType.Spell">{{ health }}</p>

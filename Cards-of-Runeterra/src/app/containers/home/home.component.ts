@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CardType } from 'src/app/models/card-type.model';
 import { Region } from 'src/app/models/region.model';
 import { Rarity } from 'src/app/models/rarity.model';
-import { SpellFeature } from 'src/app/models/spell-feature.model';
-import { UnitFeature } from 'src/app/models/unit-feature.model';
+import { SpellKeywords } from 'src/app/models/spell-keywords.model';
+import { UnitKeywords } from 'src/app/models/unit-keywords.model';
 
 @Component({
   selector: 'cr-home',
@@ -11,18 +11,27 @@ import { UnitFeature } from 'src/app/models/unit-feature.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  type: CardType = CardType.Spell;
   mana: number;
   attack: number;
   health: number;
+
   cardTitle: string;
   description: string;
-  region: Region;
-  rarity: Rarity;
-  spellFeature: SpellFeature
-  unitFeature: UnitFeature
+
+  Rarity = Rarity;
+  rarity: Rarity = Rarity.None;
+
   CardType = CardType;
+  type: CardType = CardType.Follower;
+
   Region = Region;
+  region: Region;
+
+  SpellKeywords = SpellKeywords;
+  spellKeyword: SpellKeywords = SpellKeywords.Burst;
+
+  UnitKeywords = UnitKeywords;
+  unitKeyword: UnitKeywords
 
   ngOnInit() {  }
 
@@ -32,5 +41,17 @@ export class HomeComponent implements OnInit {
 
   switchRegion(region: Region) {
     this.region = region;
+  }
+
+  switchSpellKeyword(keyword: SpellKeywords) {
+    this.spellKeyword = keyword;
+  }
+
+  switchUnitKeyword(keyword: UnitKeywords) {
+    this.unitKeyword = keyword;
+  }
+
+  switchRarity(rarity: Rarity) {
+    this.rarity = rarity;
   }
 }

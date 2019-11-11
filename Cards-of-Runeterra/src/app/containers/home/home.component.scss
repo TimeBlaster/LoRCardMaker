@@ -20,7 +20,7 @@
   .filters-container {
     color: black;
     width: 800px;
-    height: 60%;
+    height: 70%;
     border-radius: 10px;
     background-color: antiquewhite;
     opacity: 0.8;
@@ -36,7 +36,7 @@
         justify-content: space-evenly;
 
         .card-type-icon {
-          width: 70px;
+          width: 50px;
           cursor: pointer;
           opacity: 0.5;
         }
@@ -67,6 +67,24 @@
 
         .stat-title {
           // margin-bottom: 0;S
+        }
+      }
+    }
+
+    .keywords {
+      .keywords-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .keyword-type-icon {
+          width: 50px;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+
+        .selected {
+          opacity: 1;
         }
       }
     }
@@ -134,15 +152,30 @@
     }
 
     .rarities {
+      .rarity-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+
+      .rarity-icon {
+        width: 40px;
+        cursor: pointer;
+        opacity: 0.5;
+      }
+
+      .selected {
+        opacity: 1;
+      }
     }
   }
 
   .card-container {
-    color: black;
+    color: white;
     min-width: 400px;
-    height: 60%;
+    height: 70%;
     border-radius: 10px;
-    background-color: antiquewhite;
+    background-color: #b18d5d;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -153,9 +186,23 @@
       .card-base {
         width: 300px;
       }
+
+      .mana {
+        position: absolute;
+        font-family: "BeaufortforLOLBold";
+        font-size: 20px;
+      }
+
+      .title {
+        font-family: "BeaufortforLOLBold";
+        // color: white;
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
 
     button {
+      color: black;
       border: 1px solid black;
     }
   }
