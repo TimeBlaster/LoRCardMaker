@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   cardTitle: string;
   description: string;
+  levelup: string;
 
   Rarity = Rarity;
   rarity: Rarity = Rarity.None;
@@ -31,9 +32,24 @@ export class HomeComponent implements OnInit {
   spellKeyword: SpellKeywords = SpellKeywords.Burst;
 
   UnitKeywords = UnitKeywords;
-  unitKeyword: UnitKeywords
+  unitKeywords: Map<UnitKeywords, boolean>;
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.unitKeywords = new Map<UnitKeywords, boolean>();
+    this.unitKeywords.set(UnitKeywords.Ephemeral, false);
+    this.unitKeywords.set(UnitKeywords.Challenger, false);
+    this.unitKeywords.set(UnitKeywords.Fearsome, false);
+    this.unitKeywords.set(UnitKeywords.QuickAttack, false);
+    this.unitKeywords.set(UnitKeywords.Elusive, false);
+    this.unitKeywords.set(UnitKeywords.CantBlock, false);
+    this.unitKeywords.set(UnitKeywords.Tough, false);
+    this.unitKeywords.set(UnitKeywords.Overwhelm, false);
+    this.unitKeywords.set(UnitKeywords.Regeneration, false);
+    this.unitKeywords.set(UnitKeywords.Lifesteal, false);
+    this.unitKeywords.set(UnitKeywords.Barrier, false);
+    this.unitKeywords.set(UnitKeywords.DoubleAttack, false);
+    this.unitKeywords.set(UnitKeywords.Fleeting, false);
+  }
 
   switchType(type: CardType) {
     this.type = type;
@@ -48,10 +64,33 @@ export class HomeComponent implements OnInit {
   }
 
   switchUnitKeyword(keyword: UnitKeywords) {
-    this.unitKeyword = keyword;
+    this.unitKeywords.set(keyword, !this.unitKeywords.get(keyword));
   }
 
   switchRarity(rarity: Rarity) {
     this.rarity = rarity;
+  }
+
+  uniqueKeyword(): boolean {
+    let counter = 0;
+    for (let value of this.unitKeywords.values()) {
+      if (value) {
+        counter++;
+      }
+    }
+    if (counter === 1) {
+      return true;
+    }
+    return false;
+  }
+
+  getUniqueKeyword(): UnitKeywords {
+    console.log(this.unitKeywords);
+
+    for (let key of this.unitKeywords.keys()) {
+      if (this.unitKeywords.get(key)) {
+        return key;
+      }
+    }
   }
 }
