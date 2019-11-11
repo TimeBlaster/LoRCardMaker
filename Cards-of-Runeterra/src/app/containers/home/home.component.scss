@@ -1,3 +1,5 @@
+@import "~src/theme";
+
 .background {
   background: url(src\assets\backgrounds\daring_poro.jpg) no-repeat fixed center;
   background-size: cover;
@@ -17,10 +19,122 @@
 
   .filters-container {
     color: black;
-    width: 50%;
+    width: 800px;
     height: 60%;
     border-radius: 10px;
     background-color: antiquewhite;
+    opacity: 0.8;
+
+    .title {
+      margin-left: 10px;
+    }
+
+    .types {
+      .types-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .card-type-icon {
+          width: 70px;
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        .selected {
+          opacity: 1;
+        }
+      }
+    }
+
+    .stats {
+      .stats-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .mana,
+        .attack,
+        .health {
+          display: flex;
+          flex-direction: row;
+
+          label {
+            margin-top: -13px;
+            margin-left: 16px;
+          }
+        }
+
+        .stat-title {
+          // margin-bottom: 0;S
+        }
+      }
+    }
+
+    .name {
+      display: flex;
+      flex-direction: row;
+
+      p {
+        width: 15%;
+      }
+
+      label {
+        width: 75%;
+        margin-top: 15px;
+
+        input {
+          width: 100%;
+          height: 20px;
+          background-color: antiquewhite;
+          border: 1px solid rgb(214, 209, 202);
+        }
+      }
+    }
+
+    .description {
+      display: flex;
+      flex-direction: row;
+
+      p {
+        width: 15%;
+      }
+
+      label {
+        width: 75%;
+        margin-top: 15px;
+
+        input {
+          width: 100%;
+          height: 20px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          background-color: antiquewhite;
+          border: 1px solid rgb(214, 209, 202);
+        }
+      }
+    }
+
+    .regions {
+      .regions-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .region-icon {
+          width: 80px;
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        .selected {
+          opacity: 1;
+        }
+      }
+    }
+
+    .rarities {
+    }
   }
 
   .card-container {
@@ -35,8 +149,155 @@
     position: relative;
     flex-direction: column;
 
-    .card-base {
-      width: 300px;
+    .card {
+      .card-base {
+        width: 300px;
+      }
+    }
+
+    button {
+      border: 1px solid black;
     }
   }
+}
+/*
+=====
+Style from:
+https://codepen.io/melnik909/pen/BZpJLN
+=====
+*/
+
+.field {
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+}
+
+.field__input {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+  opacity: 1;
+}
+
+.a-field {
+  display: inline-block;
+}
+
+.a-field__input {
+  display: block;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.a-field__input:focus {
+  outline: none;
+}
+
+.a-field {
+  --uiFieldHeight: var(--fieldHeight, 40px);
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldBorderColor: var(--fieldBorderColor);
+
+  --uiFieldFontSize: var(--fieldFontSize, 1em);
+  --uiFieldHintFontSize: var(--fieldHintFontSize, 1em);
+
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 15px);
+  --uiFieldPaddingBottom: var(--fieldPaddingBottom, 15px);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 15px);
+
+  position: relative;
+  box-sizing: border-box;
+  font-size: var(--uiFieldFontSize);
+  padding-top: 1em;
+}
+
+.a-field__input {
+  height: var(--uiFieldHeight);
+  padding: 0 var(--uiFieldPaddingRight) 0 var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColor);
+}
+
+.a-field__input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.a-field__input::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.a-field__input:not(:placeholder-shown) ~ .a-field__label-wrap .a-field__label {
+  opacity: 0;
+  bottom: var(--uiFieldPaddingBottom);
+}
+
+.a-field__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.a-field__input:focus::-moz-placeholder {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.a-field__label-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--uiFieldHeight);
+
+  pointer-events: none;
+  cursor: text;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.a-field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  bottom: calc(50% - 0.5em);
+
+  line-height: 1;
+  font-size: var(--uiFieldHintFontSize);
+
+  pointer-events: none;
+  transition: bottom 0.2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity 0.2s ease-out;
+  will-change: bottom, opacity;
+}
+
+.a-field__input:focus ~ .a-field__label-wrap .a-field__label {
+  opacity: 1;
+  bottom: var(--uiFieldHeight);
+}
+
+/* a-field_a1 */
+
+.a-field_a1 .a-field__input {
+  transition: border-color 0.2s ease-out;
+  will-change: border-color;
+}
+
+.a-field_a1 .a-field__input:focus {
+  border-color: var(--fieldBorderColorActive);
+}
+
+.field {
+  --fieldBorderColor: rgb(214, 209, 202);
+  --fieldBorderColorActive: rgb(219, 189, 146);
 }

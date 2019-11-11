@@ -1,13 +1,95 @@
 <div class="background">
 
-<div class="home">
-  <div class="filters-container">
-    <p>stuff here</p>
-  </div>
+  <div class="home">
+    <div class="filters-container">
+      <div class="types">
+        <p class="title">Type</p>
 
-  <div class="card-container">
-    <img class="card-base" src="assets/cards/spell.png">
-    <button mat-stroked-button color="primary">Download</button>
+        <div class="types-container">
+          <img class="card-type-icon" src="assets/types/champion.png" (click)="switchType(CardType.Champion)" [class.selected]="type === CardType.Champion">
+          <img class="card-type-icon" src="assets/types/follower.png" (click)="switchType(CardType.Follower)" [class.selected]="type === CardType.Follower">
+          <img class="card-type-icon" src="assets/types/spell.png" (click)="switchType(CardType.Spell)" [class.selected]="type === CardType.Spell">
+        </div>
+      </div>
+      <div class="stats">
+        <p class="title">Stats</p>
+        <div class="stats-container">
+          <div class="mana">
+            <p class="stat-title">Mana</p>
+            <label class="field a-field a-field_a1">
+              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="mana">
+              <span class="a-field__label-wrap">
+                <span class="a-field__label"></span>
+              </span>
+            </label>
+          </div>
+
+          <div class="attack">
+            <p class="stat-title">Attack</p>
+            <label class="field a-field a-field_a1">
+              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="attack">
+              <span class="a-field__label-wrap">
+                <span class="a-field__label"></span>
+              </span>
+            </label>
+          </div>
+
+          <div class="health">
+            <p class="stat-title">Health</p>
+            <label class="field a-field a-field_a1">
+              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="health">
+              <span class="a-field__label-wrap">
+                <span class="a-field__label"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="name">
+        <p class="title">Card title</p>
+        <label>
+          <input class="name-input"  [(ngModel)]="cardTitle">
+        </label>
+      </div>
+
+      <div class="description">
+        <p class=title>Description</p>
+        <label>
+          <input class="description-input" [(ngModel)]="description">
+        </label>
+      </div>
+
+      <div class="regions">
+        <p class="title">Region</p>
+
+        <div class="regions-container">
+          <img class="region-icon" src="assets/regions/icon-demacia.png" (click)="switchRegion(Region.Demacia)" [class.selected]="region === Region.Demacia">
+          <img class="region-icon" src="assets/regions/icon-freljord.png" (click)="switchRegion(Region.Freljord)" [class.selected]="region === Region.Freljord">
+          <img class="region-icon" src="assets/regions/icon-ionia.png" (click)="switchRegion(Region.Ionia)" [class.selected]="region === Region.Ionia">
+          <img class="region-icon" src="assets/regions/icon-noxus.png" (click)="switchRegion(Region.Noxus)" [class.selected]="region === Region.Noxus">
+          <img class="region-icon" src="assets/regions/icon-piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)" [class.selected]="region === Region.PiltoverZaun">
+          <img class="region-icon" src="assets/regions/icon-shadowisles.png" (click)="switchRegion(Region.ShadowIsles)" [class.selected]="region === Region.ShadowIsles">
+        </div>
+      </div>
+
+      <div class="rarities">
+        <p class="title">Rarity</p>
+
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <img class="card-base" [src]="'assets/cards/' + type + '.png'">
+        <p class="mana">{{ mana }}</p>
+        <p class="attack" *ngIf="type != CardType.Spell">{{ attack }}</p>
+        <p class="health" *ngIf="type != CardType.Spell">{{ health }}</p>
+        <p class="title">{{ cardTitle }}</p>
+        <p class="description">{{ description }}</p>
+      </div>
+
+      <button mat-stroked-button>Download</button>
+    </div>
   </div>
-</div>
 </div>
