@@ -179,23 +179,62 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: relative;
     flex-direction: column;
 
     .card {
+      position: relative;
+
       .card-base {
-        width: 300px;
+        width: 340px;
       }
 
-      .mana {
+      .mana-container {
+        width: 41px;
+        height: 42px;
         position: absolute;
-        font-family: "BeaufortforLOLBold";
-        font-size: 20px;
+        top: 23px;
+        left: 24px;
+
+        .mana {
+          font-family: "BeaufortforLOLBold";
+          font-size: 39px;
+          margin: 0;
+          text-align: center;
+        }
+      }
+
+      .attack-container {
+        width: 50px;
+        height: 42px;
+        position: absolute;
+        bottom: 63px;
+        left: 19px;
+
+        .attack {
+          font-family: "BeaufortforLOLBold";
+          font-size: 39px;
+          margin: 0;
+          text-align: center;
+        }
+      }
+
+      .health-container {
+        width: 50px;
+        height: 42px;
+        position: absolute;
+        bottom: 63px;
+        right: 19px;
+
+        .health {
+          font-family: "BeaufortforLOLBold";
+          font-size: 39px;
+          margin: 0;
+          text-align: center;
+        }
       }
 
       .title {
         font-family: "BeaufortforLOLBold";
-        // color: white;
         font-weight: bold;
         font-size: 20px;
       }

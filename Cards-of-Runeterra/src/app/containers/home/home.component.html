@@ -160,9 +160,18 @@
         (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
         rarity +
         '.png'">
-        <p class="mana">{{ mana }}</p>
-        <p class="attack" *ngIf="type != CardType.Spell">{{ attack }}</p>
-        <p class="health" *ngIf="type != CardType.Spell">{{ health }}</p>
+        <div class="mana-container">
+          <p class="mana">{{ mana }}</p>
+        </div>
+
+        <div class="attack-container" *ngIf="type != CardType.Spell">
+          <p class="attack">{{ attack }}</p>
+        </div>
+
+        <div class="health-container" *ngIf="type != CardType.Spell">
+          <p class="health">{{ health }}</p>
+        </div>
+
         <p class="title">{{ cardTitle }}</p>
         <p class="description">{{ description }}</p>
       </div>
