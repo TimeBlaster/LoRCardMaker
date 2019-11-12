@@ -241,9 +241,18 @@
           text-transform: uppercase;
         }
 
+        .unit-keyword-icon-container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          width: 70%;
+        }
+
         .unit-keyword-icon {
-          height: 30px;
-          margin-top: 2px;
+          height: 40px;
+          margin: 2px 7px 0 7px;
         }
 
         .description {

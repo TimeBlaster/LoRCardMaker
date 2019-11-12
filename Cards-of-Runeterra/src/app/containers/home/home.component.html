@@ -20,7 +20,8 @@
           <div class="mana">
             <p class="stat-title">Mana</p>
             <label class="field a-field a-field_a1">
-              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="mana">
+              <input type="number" class="field__input a-field__input"
+                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="mana">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -30,7 +31,8 @@
           <div class="attack" *ngIf="type !== CardType.Spell">
             <p class="stat-title">Attack</p>
             <label class="field a-field a-field_a1">
-              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="attack">
+              <input type="number" class="field__input a-field__input"
+                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="attack">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -40,7 +42,8 @@
           <div class="health" *ngIf="type !== CardType.Spell">
             <p class="stat-title">Health</p>
             <label class="field a-field a-field_a1">
-              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="health">
+              <input type="number" class="field__input a-field__input"
+                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="health">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -186,7 +189,16 @@
         <div class="unit-info-container" *ngIf="type !== CardType.Spell; else SpellInfo">
           <p class="title">{{ cardTitle }}</p>
           <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
-            *ngIf="uniqueUnitKeyword()">
+            *ngIf="uniqueUnitKeyword(); else MultipleKeyword">
+          <ng-template #MultipleKeyword>
+            <div class="unit-keyword-icon-container">
+              <div *ngFor="let keyword of unitKeywords | keyvalue">
+                <img class="unit-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                  *ngIf="keyword.value">
+              </div>
+            </div>
+
+          </ng-template>
           <p class="description">{{ description }}</p>
           <img class="levelup-bar" src="assets/cards/champion/levelupbar.png"
             *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
@@ -195,11 +207,11 @@
 
         <ng-template #SpellInfo>
           <div class="spell-info-container">
-          <p class="title">{{ cardTitle }}</p>
-          <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
-            *ngIf="uniqueSpellKeyword()">
-          <p class="description">{{ description }}</p>
-        </div>
+            <p class="title">{{ cardTitle }}</p>
+            <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
+              *ngIf="uniqueSpellKeyword()">
+            <p class="description">{{ description }}</p>
+          </div>
         </ng-template>
       </div>
 
