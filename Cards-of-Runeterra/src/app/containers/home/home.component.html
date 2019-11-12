@@ -20,7 +20,7 @@
           <div class="mana">
             <p class="stat-title">Mana</p>
             <label class="field a-field a-field_a1">
-              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="mana">
+              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="mana">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -30,7 +30,7 @@
           <div class="attack">
             <p class="stat-title">Attack</p>
             <label class="field a-field a-field_a1">
-              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="attack">
+              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="attack">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -40,7 +40,7 @@
           <div class="health">
             <p class="stat-title">Health</p>
             <label class="field a-field a-field_a1">
-              <input class="field__input a-field__input" maxlength="2" [(ngModel)]="health">
+              <input type="number" class="field__input a-field__input" oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="health">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>

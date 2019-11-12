@@ -358,6 +358,17 @@ https://codepen.io/melnik909/pen/BZpJLN
   width: 50px;
 }
 
+/* hides the increase/decrease arrows on webkit-browsers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
 .a-field__input:focus {
   outline: none;
 }
