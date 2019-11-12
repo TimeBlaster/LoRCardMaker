@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CardType } from 'src/app/models/card-type.model';
 import { Region } from 'src/app/models/region.model';
 import { Rarity } from 'src/app/models/rarity.model';
@@ -8,10 +8,11 @@ import { UnitKeywords } from 'src/app/models/unit-keywords.model';
 @Component({
   selector: 'cr-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  mana: number;
+  mana: string;
   attack: number;
   health: number;
 
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   SpellKeywords = SpellKeywords;
   spellKeyword: SpellKeywords = SpellKeywords.Burst;
+  spellFleeting = false;
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
@@ -49,10 +51,21 @@ export class HomeComponent implements OnInit {
     this.unitKeywords.set(UnitKeywords.Barrier, false);
     this.unitKeywords.set(UnitKeywords.DoubleAttack, false);
     this.unitKeywords.set(UnitKeywords.Fleeting, false);
+
+    this.spellKeyword = SpellKeywords.Burst;
   }
 
   switchType(type: CardType) {
     this.type = type;
+
+    const nonChampionRarity: Rarity[] = [Rarity.None, Rarity.Common, Rarity.Rare, Rarity.Epic];
+
+    if (type === CardType.Champion) {
+      this.rarity = Rarity.Champion;
+    } else if (!nonChampionRarity.includes(this.rarity)) {
+      this.rarity = Rarity.None;
+    }
+
   }
 
   switchRegion(region: Region) {
@@ -71,7 +84,7 @@ export class HomeComponent implements OnInit {
     this.rarity = rarity;
   }
 
-  uniqueKeyword(): boolean {
+  uniqueUnitKeyword(): boolean {
     let counter = 0;
     for (let value of this.unitKeywords.values()) {
       if (value) {
@@ -84,13 +97,15 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
-  getUniqueKeyword(): UnitKeywords {
-    console.log(this.unitKeywords);
-
+  getUniqueUnitKeyword(): UnitKeywords {
     for (let key of this.unitKeywords.keys()) {
       if (this.unitKeywords.get(key)) {
         return key;
       }
     }
+  }
+
+  uniqueSpellKeyword(): boolean {
+    return !this.spellFleeting;
   }
 }
