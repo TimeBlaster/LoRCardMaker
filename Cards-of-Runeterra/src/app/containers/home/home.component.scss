@@ -22,8 +22,7 @@
     width: 800px;
     height: 70%;
     border-radius: 10px;
-    background-color: antiquewhite;
-    opacity: 0.8;
+    background-color: rgba(169, 155, 126, 0.7);
 
     .title {
       margin-left: 10px;
@@ -64,22 +63,19 @@
             margin-left: 16px;
           }
         }
-
-        .stat-title {
-          // margin-bottom: 0;S
-        }
       }
     }
 
     .keywords {
+      margin-top: 10px;
       .keywords-container {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
 
         .keyword-type-icon {
-		  width: 60px;
-		  height:60px;
+          width: 50px;
+          height: 50px;
           opacity: 0.5;
           cursor: pointer;
         }
@@ -90,34 +86,34 @@
       }
     }
 
-	.text-input-container{
-		height: 150px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
+    .text-input-container {
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
 
-		.name,
-		.description,
-		.levelup {
-            display: flex;
-            flex-direction: row;
+      .name,
+      .description,
+      .levelup {
+        display: flex;
+        flex-direction: row;
 
-			p {
-				width: 15%;
-			}
+        p {
+          width: 15%;
+        }
 
-			label {
-				width: 75%;
-				margin-top: 15px;
+        label {
+          width: 75%;
+          margin-top: 15px;
 
-				input {
-				width: 100%;
-				height: 20px;
-				border: 1px solid rgb(214, 209, 202);
-				}
-			}
-		}
-	}
+          input {
+            width: 100%;
+            height: 20px;
+            border: 1px solid rgb(214, 209, 202);
+          }
+        }
+      }
+    }
 
     .regions {
       .regions-container {
@@ -161,7 +157,7 @@
     min-width: 400px;
     height: 70%;
     border-radius: 10px;
-    background-color: #3e3c39;
+    background-color: rgba(158, 148, 126, 0.9);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -221,17 +217,19 @@
 
       .unit-info-container {
         position: absolute;
-        bottom: 90px;
+        bottom: 92px;
         left: 0;
         width: 100%;
-        height: 70%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
 
-        .title, .description, .levelup {
-          width: 70%;
+        .title,
+        .description,
+        .levelup {
+          width: 80%;
           overflow: hidden;
           text-align: center;
           margin: 0;
@@ -247,7 +245,7 @@
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          width: 70%;
+          width: 80%;
         }
 
         .unit-keyword-icon {
@@ -281,8 +279,10 @@
         justify-content: flex-start;
         align-items: center;
 
-        .title, .description, .levelup {
-          width: 70%;
+        .title,
+        .description,
+        .levelup {
+          width: 80%;
           overflow: hidden;
           text-align: center;
           margin: 0;
@@ -299,6 +299,7 @@
 
         .description {
           margin-top: 10px;
+          color: #f1f1f1;
         }
 
         .levelup-bar {
@@ -317,6 +318,21 @@
         font-weight: bold;
         font-size: 20px;
       }
+
+      .region {
+        position: absolute;
+        bottom: 41px;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .region-icon {
+          width: 44px;
+          opacity: 0.6;
+        }
+      }
     }
 
     button {
@@ -325,12 +341,8 @@
     }
   }
 }
-/*
-=====
-Style from:
-https://codepen.io/melnik909/pen/BZpJLN
-=====
-*/
+
+/* Style from: https://codepen.io/melnik909/pen/BZpJLN */
 
 .field {
   --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
@@ -370,12 +382,12 @@ https://codepen.io/melnik909/pen/BZpJLN
 /* hides the increase/decrease arrows on webkit-browsers */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 .a-field__input:focus {
