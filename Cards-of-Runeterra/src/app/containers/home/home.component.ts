@@ -4,6 +4,8 @@ import { Region } from 'src/app/models/region.model';
 import { Rarity } from 'src/app/models/rarity.model';
 import { SpellKeywords } from 'src/app/models/spell-keywords.model';
 import { UnitKeywords } from 'src/app/models/unit-keywords.model';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'cr-home',
@@ -107,5 +109,13 @@ export class HomeComponent implements OnInit {
 
   uniqueSpellKeyword(): boolean {
     return !this.spellFleeting;
+  }
+
+  download() {
+    const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png'
+    domtoimage.toBlob(document.getElementById('card'))
+      .then(function (blob: Blob) {
+        saveAs(blob, title);
+      });
   }
 }

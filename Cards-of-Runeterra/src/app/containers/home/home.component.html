@@ -169,7 +169,7 @@
     </div>
 
     <div class="card-container">
-      <div class="card">
+      <div class="card" id="card">
         <img class="card-base" [src]="'assets/cards/' + type +
         (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
         rarity +
@@ -219,7 +219,7 @@
         </div>
       </div>
 
-      <button mat-stroked-button>Download</button>
+      <button mat-stroked-button (click)="download()">Download</button>
     </div>
   </div>
 </div>
