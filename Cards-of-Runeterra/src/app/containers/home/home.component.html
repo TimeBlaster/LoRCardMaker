@@ -149,8 +149,10 @@
         <div class="rarity-container">
           <img class="rarity-icon" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
             [class.selected]="rarity === Rarity.Champion" *ngIf="type === CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.None)"
-            [class.selected]="rarity === Rarity.None">
+          <img class="rarity-icon" src="assets/rarities/level.png" (click)="switchRarity(Rarity.Level)"
+            [class.selected]="rarity === Rarity.Level" *ngIf="type === CardType.Champion">
+          <img class="rarity-icon" src="assets/rarities/none.png" (click)="switchRarity(Rarity.None)"
+            [class.selected]="rarity === Rarity.None" *ngIf="type !== CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.Common)"
             [class.selected]="rarity === Rarity.Common" *ngIf="type !== CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/rare.png" (click)="switchRarity(Rarity.Rare)"
