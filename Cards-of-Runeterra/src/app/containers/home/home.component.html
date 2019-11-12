@@ -103,27 +103,29 @@
         </ng-template>
       </div>
 
-      <div class="name">
-        <p class="title">Card title</p>
-        <label>
-          <input [(ngModel)]="cardTitle">
-        </label>
-      </div>
+	  <div class="text-input-container">
+		<div class="name">
+		  <p class="title">Card title</p>
+		  <label>
+			<input [(ngModel)]="cardTitle">
+		  </label>
+		</div>
 
-      <div class="description">
-        <p class=title>Description</p>
-        <label>
-          <input [(ngModel)]="description">
-        </label>
-      </div>
+        <div class="description">
+          <p class=title>Description</p>
+          <label>
+            <input [(ngModel)]="description">
+          </label>
+        </div>
 
-      <div class="levelup" *ngIf="type === CardType.Champion">
-        <p class=title>Level up</p>
-        <label>
-          <input [(ngModel)]="levelup">
-        </label>
-      </div>
-
+        <div class="levelup" *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
+          <p class=title>Level up</p>
+          <label>
+            <input [(ngModel)]="levelup">
+          </label>
+        </div>
+	  </div>
+	  
       <div class="regions">
         <p class="title">Region</p>
 
@@ -188,7 +190,7 @@
           <p class="description">{{ description }}</p>
           <img class="levelup-bar" src="assets/cards/champion/levelupbar.png"
             *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
-          <p class="levelup">{{ levelup }}</p>
+          <p class="levelup" *ngIf="rarity === Rarity.Champion">{{ levelup }}</p>
 
         </div>
         <div class="spell-info-container" *ngIf="type === CardType.Spell">
