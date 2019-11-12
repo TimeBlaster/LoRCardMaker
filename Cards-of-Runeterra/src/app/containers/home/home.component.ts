@@ -53,6 +53,10 @@ export class HomeComponent implements OnInit {
 
   switchType(type: CardType) {
     this.type = type;
+	if(type == CardType.Champion)
+		this.rarity = Rarity.Champion;
+	else
+		this.rarity = Rarity.None;
   }
 
   switchRegion(region: Region) {
