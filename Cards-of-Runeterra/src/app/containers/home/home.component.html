@@ -31,8 +31,8 @@
           <div class="attack" *ngIf="type !== CardType.Spell">
             <p class="stat-title">Attack</p>
             <label class="field a-field a-field_a1">
-              <input type="number" class="field__input a-field__input"
-                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="attack">
+              <input type="number" class="field__input a-field__input" oninput="this.value = this.value.substring(0,2);"
+                [(ngModel)]="attack">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -213,6 +213,10 @@
             <p class="description">{{ description }}</p>
           </div>
         </ng-template>
+
+        <div class="region" *ngIf="region">
+          <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
+        </div>
       </div>
 
       <button mat-stroked-button>Download</button>
