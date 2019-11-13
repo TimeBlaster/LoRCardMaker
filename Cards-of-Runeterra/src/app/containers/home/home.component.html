@@ -7,11 +7,11 @@
 
         <div class="types-container">
           <img class="card-type-icon" src="assets/types/champion.png" (click)="switchType(CardType.Champion)"
-            [class.selected]="type === CardType.Champion">
+          [class.selected]="type === CardType.Champion">
           <img class="card-type-icon" src="assets/types/follower.png" (click)="switchType(CardType.Follower)"
-            [class.selected]="type === CardType.Follower">
+          [class.selected]="type === CardType.Follower">
           <img class="card-type-icon" src="assets/types/spell.png" (click)="switchType(CardType.Spell)"
-            [class.selected]="type === CardType.Spell">
+          [class.selected]="type === CardType.Spell">
         </div>
       </div>
       <div class="stats">
@@ -21,7 +21,7 @@
             <p class="stat-title">Mana</p>
             <label class="field a-field a-field_a1">
               <input type="number" class="field__input a-field__input"
-                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="mana">
+              oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="mana">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -32,7 +32,7 @@
             <p class="stat-title">Attack</p>
             <label class="field a-field a-field_a1">
               <input type="number" class="field__input a-field__input" oninput="this.value = this.value.substring(0,2);"
-                [(ngModel)]="attack">
+              [(ngModel)]="attack">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -43,7 +43,7 @@
             <p class="stat-title">Health</p>
             <label class="field a-field a-field_a1">
               <input type="number" class="field__input a-field__input"
-                oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="health">
+              oninput="if(this.value.length>=2) this.value = this.value.substring(0,2);" [(ngModel)]="health">
               <span class="a-field__label-wrap">
                 <span class="a-field__label"></span>
               </span>
@@ -56,52 +56,54 @@
         <div *ngIf="type === CardType.Spell; else Unit">
           <div class="keywords-container">
             <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
-              (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeyword === SpellKeywords.Burst">
+            (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeyword === SpellKeywords.Burst">
             <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
-              (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeyword === SpellKeywords.Slow">
+            (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeyword === SpellKeywords.Slow">
             <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
-              (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeyword === SpellKeywords.Fast">
+            (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeyword === SpellKeywords.Fast">
+            <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
+            (click)="spellFleeting = !spellFleeting" [class.selected]="spellFleeting">
           </div>
         </div>
 
         <ng-template #Unit>
           <div class="keywords-container">
             <img class="keyword-type-icon" src="assets/keywords/icons/regeneration.png"
-              (click)="switchUnitKeyword(UnitKeywords.Regeneration)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Regeneration)">
+            (click)="switchUnitKeyword(UnitKeywords.Regeneration)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Regeneration)">
             <img class="keyword-type-icon" src="assets/keywords/icons/lifesteal.png"
-              (click)="switchUnitKeyword(UnitKeywords.Lifesteal)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Lifesteal)">
+            (click)="switchUnitKeyword(UnitKeywords.Lifesteal)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Lifesteal)">
             <img class="keyword-type-icon" src="assets/keywords/icons/challenger.png"
-              (click)="switchUnitKeyword(UnitKeywords.Challenger)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Challenger)">
+            (click)="switchUnitKeyword(UnitKeywords.Challenger)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Challenger)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fearsome.png"
-              (click)="switchUnitKeyword(UnitKeywords.Fearsome)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Fearsome)">
+            (click)="switchUnitKeyword(UnitKeywords.Fearsome)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Fearsome)">
             <img class="keyword-type-icon" src="assets/keywords/icons/quick-attack.png"
-              (click)="switchUnitKeyword(UnitKeywords.QuickAttack)"
-              [class.selected]="unitKeywords.get(UnitKeywords.QuickAttack)">
+            (click)="switchUnitKeyword(UnitKeywords.QuickAttack)"
+            [class.selected]="unitKeywords.get(UnitKeywords.QuickAttack)">
             <img class="keyword-type-icon" src="assets/keywords/icons/elusive.png"
-              (click)="switchUnitKeyword(UnitKeywords.Elusive)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Elusive)">
+            (click)="switchUnitKeyword(UnitKeywords.Elusive)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Elusive)">
             <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
-              (click)="switchUnitKeyword(UnitKeywords.Overwhelm)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Overwhelm)">
+            (click)="switchUnitKeyword(UnitKeywords.Overwhelm)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Overwhelm)">
             <img class="keyword-type-icon" src="assets/keywords/icons/double-attack.png"
-              (click)="switchUnitKeyword(UnitKeywords.DoubleAttack)"
-              [class.selected]="unitKeywords.get(UnitKeywords.DoubleAttack)">
+            (click)="switchUnitKeyword(UnitKeywords.DoubleAttack)"
+            [class.selected]="unitKeywords.get(UnitKeywords.DoubleAttack)">
             <img class="keyword-type-icon" src="assets/keywords/icons/ephemeral.png"
-              (click)="switchUnitKeyword(UnitKeywords.Ephemeral)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Ephemeral)">
+            (click)="switchUnitKeyword(UnitKeywords.Ephemeral)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Ephemeral)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
-              (click)="switchUnitKeyword(UnitKeywords.Fleeting)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Fleeting)">
+            (click)="switchUnitKeyword(UnitKeywords.Fleeting)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Fleeting)">
             <img class="keyword-type-icon" src="assets/keywords/icons/cant-block.png"
-              (click)="switchUnitKeyword(UnitKeywords.CantBlock)"
-              [class.selected]="unitKeywords.get(UnitKeywords.CantBlock)">
+            (click)="switchUnitKeyword(UnitKeywords.CantBlock)"
+            [class.selected]="unitKeywords.get(UnitKeywords.CantBlock)">
             <img class="keyword-type-icon" src="assets/keywords/icons/barrier.png"
-              (click)="switchUnitKeyword(UnitKeywords.Barrier)"
-              [class.selected]="unitKeywords.get(UnitKeywords.Barrier)">
+            (click)="switchUnitKeyword(UnitKeywords.Barrier)"
+            [class.selected]="unitKeywords.get(UnitKeywords.Barrier)">
           </div>
         </ng-template>
       </div>
@@ -109,29 +111,57 @@
       <div class="text-input-container">
         <div class="name">
           <p class="title">Card title</p>
-          <label>
-            <input [(ngModel)]="cardTitle">
+          <!-- <input [(ngModel)]="cardTitle"> -->
+          <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input"
+            [(ngModel)]="cardTitle">
+            <span class="a-field__label-wrap">
+              <span class="a-field__label"></span>
+            </span>
           </label>
         </div>
 
+
         <div class="description">
           <p class=title>Description</p>
-          <label>
+          <!-- <label>
             <input [(ngModel)]="description">
+          </label> -->
+          <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input"
+            [(ngModel)]="description">
+            <span class="a-field__label-wrap">
+              <span class="a-field__label"></span>
+            </span>
           </label>
         </div>
-		
-		<div class="subtype" *ngIf="type !== CardType.Spell">
+
+        <div class="subtype" *ngIf="type !== CardType.Spell">
           <p class=title>Subtype</p>
-          <label>
+          <!-- <label>
             <input [(ngModel)]="subtype">
+          </label> -->
+          <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input"
+            [(ngModel)]="subtype">
+            <span class="a-field__label-wrap">
+              <span class="a-field__label"></span>
+            </span>
           </label>
+
         </div>
 
         <div class="levelup" *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
           <p class=title>Level up</p>
-          <label>
+          <!-- <label>
             <input [(ngModel)]="levelup">
+          </label> -->
+          <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input"
+            [(ngModel)]="levelup">
+            <span class="a-field__label-wrap">
+              <span class="a-field__label"></span>
+            </span>
           </label>
         </div>
       </div>
@@ -141,17 +171,17 @@
 
         <div class="regions-container">
           <img class="region-icon" src="assets/regions/demacia.png" (click)="switchRegion(Region.Demacia)"
-            [class.selected]="region === Region.Demacia">
+          [class.selected]="region === Region.Demacia">
           <img class="region-icon" src="assets/regions/freljord.png" (click)="switchRegion(Region.Freljord)"
-            [class.selected]="region === Region.Freljord">
+          [class.selected]="region === Region.Freljord">
           <img class="region-icon" src="assets/regions/ionia.png" (click)="switchRegion(Region.Ionia)"
-            [class.selected]="region === Region.Ionia">
+          [class.selected]="region === Region.Ionia">
           <img class="region-icon" src="assets/regions/noxus.png" (click)="switchRegion(Region.Noxus)"
-            [class.selected]="region === Region.Noxus">
+          [class.selected]="region === Region.Noxus">
           <img class="region-icon" src="assets/regions/piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)"
-            [class.selected]="region === Region.PiltoverZaun">
+          [class.selected]="region === Region.PiltoverZaun">
           <img class="region-icon" src="assets/regions/shadowisles.png" (click)="switchRegion(Region.ShadowIsles)"
-            [class.selected]="region === Region.ShadowIsles">
+          [class.selected]="region === Region.ShadowIsles">
         </div>
       </div>
 
@@ -160,17 +190,17 @@
 
         <div class="rarity-container">
           <img class="rarity-icon" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
-            [class.selected]="rarity === Rarity.Champion" *ngIf="type === CardType.Champion">
+          [class.selected]="rarity === Rarity.Champion" *ngIf="type === CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/level.png" (click)="switchRarity(Rarity.Level)"
-            [class.selected]="rarity === Rarity.Level" *ngIf="type === CardType.Champion">
+          [class.selected]="rarity === Rarity.Level" *ngIf="type === CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/none.png" (click)="switchRarity(Rarity.None)"
-            [class.selected]="rarity === Rarity.None" *ngIf="type !== CardType.Champion">
+          [class.selected]="rarity === Rarity.None" *ngIf="type !== CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.Common)"
-            [class.selected]="rarity === Rarity.Common" *ngIf="type !== CardType.Champion">
+          [class.selected]="rarity === Rarity.Common" *ngIf="type !== CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/rare.png" (click)="switchRarity(Rarity.Rare)"
-            [class.selected]="rarity === Rarity.Rare" *ngIf="type !== CardType.Champion">
+          [class.selected]="rarity === Rarity.Rare" *ngIf="type !== CardType.Champion">
           <img class="rarity-icon" src="assets/rarities/epic.png" (click)="switchRarity(Rarity.Epic)"
-            [class.selected]="rarity === Rarity.Epic" *ngIf="type !== CardType.Champion">
+          [class.selected]="rarity === Rarity.Epic" *ngIf="type !== CardType.Champion">
         </div>
       </div>
     </div>
@@ -194,27 +224,27 @@
         </div>
 
         <div class="unit-info-container" *ngIf="type !== CardType.Spell; else SpellInfo">
-		  <div class="unit-typing-container" *ngIf="subtype">
-			<img class="typing-bar" src="assets/cards/typing.png" >
-			<p class="subtype">{{ subtype }}</p>
-		  </div>
-		  
+          <div class="unit-typing-container" *ngIf="subtype">
+            <img class="typing-bar" src="assets/cards/typing.png" >
+            <p class="subtype">{{ subtype }}</p>
+          </div>
+
           <p class="title">{{ cardTitle }}</p>
           <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
-            *ngIf="uniqueUnitKeyword(); else MultipleKeyword">
-			
-          <ng-template #MultipleKeyword>
+          *ngIf="uniqueUnitKeyword(); else MultipleUnitKeyword">
+
+          <ng-template #MultipleUnitKeyword>
             <div class="unit-keyword-icon-container">
               <div *ngFor="let keyword of unitKeywords | keyvalue">
                 <img class="unit-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
-                  *ngIf="keyword.value">
+                *ngIf="keyword.value">
               </div>
             </div>
-
           </ng-template>
+
           <p class="description">{{ description }}</p>
           <img class="levelup-bar" src="assets/cards/champion/levelupbar.png"
-            *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
+          *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
           <p class="levelup" *ngIf="rarity === Rarity.Champion">{{ levelup }}</p>
         </div>
 
@@ -222,7 +252,15 @@
           <div class="spell-info-container">
             <p class="title">{{ cardTitle }}</p>
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
-              *ngIf="uniqueSpellKeyword()">
+            *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
+
+            <ng-template #MultipleSpellKeyword>
+                <div class="spell-keyword-icon-container">
+                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + spellKeyword + '.png'">
+                <img class="spell-keyword-icon" src="assets/keywords/icons/fleeting.png">
+              </div>
+            </ng-template>
+
             <p class="description">{{ description }}</p>
           </div>
         </ng-template>

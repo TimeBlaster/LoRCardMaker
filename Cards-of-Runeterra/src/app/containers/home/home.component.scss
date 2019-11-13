@@ -92,9 +92,31 @@
       flex-direction: column;
       justify-content: space-evenly;
 
+      // .description,
+      // .subtype,
+      // .levelup {
+      //   display: flex;
+      //   flex-direction: row;
+
+      //   p {
+      //     width: 15%;
+      //   }
+
+      //   label {
+      //     width: 75%;
+      //     margin-top: 15px;
+
+      //     input {
+      //       width: 100%;
+      //       height: 20px;
+      //       border: 1px solid rgb(214, 209, 202);
+      //     }
+      //   }
+      // }
+
       .name,
+      .subtype,
       .description,
-	  .subtype,
       .levelup {
         display: flex;
         flex-direction: row;
@@ -105,13 +127,10 @@
 
         label {
           width: 75%;
-          margin-top: 15px;
-
-          input {
-            width: 100%;
-            height: 20px;
-            border: 1px solid rgb(214, 209, 202);
-          }
+        }
+        input {
+          height: 20px;
+          width: 100%;
         }
       }
     }
@@ -236,30 +255,30 @@
           text-align: center;
           margin: 0;
         }
-		
-		.unit-typing-container{
-			position: absolute;
-			top: 2px;
-			left: 80px;
-			
-			.typing-bar{
-				width: 180px;
-			}
-			
-			.subtype{
-				color: #ADA89D;
-				font-family: "UniversLTStd-UltraCn";
-				letter-spacing: 3px;
-				text-align: center;
-				text-transform: uppercase;
-				margin-top:-34px;
-				margin-left: 5px;
-			}
-		}
+
+        .unit-typing-container{
+          position: absolute;
+          top: 2px;
+          left: 80px;
+
+          .typing-bar{
+            width: 180px;
+          }
+
+          .subtype{
+            color: #ADA89D;
+            font-family: "UniversLTStd-UltraCn";
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top:-34px;
+            margin-left: 5px;
+          }
+        }
 
         .title {
-		  font-size: 30px;
-		  margin-bottom: -3px;
+          font-size: 30px;
+          margin-bottom: -3px;
           text-transform: uppercase;
         }
 
@@ -280,7 +299,7 @@
         .description {
           margin-top: 10px;
           margin-bottom: 3px;
-		  font-size: 18px;
+          font-size: 18px;
         }
 
         .levelup-bar {
@@ -290,8 +309,8 @@
 
         .levelup {
           color: rgb(192,132,95);
-	      font-size: 16px;
-		  font-weight:bold;
+          font-size: 16px;
+          font-weight:bold;
           margin-top: 12px;
         }
       }
@@ -320,9 +339,18 @@
           text-transform: uppercase;
         }
 
+        .spell-keyword-icon-container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          width: 80%;
+        }
+
         .spell-keyword-icon {
-          height: 30px;
-          margin-top: 5px;
+          height: 38px;
+          margin: 2px 7px 0 7px;
         }
 
         .description {
@@ -350,7 +378,7 @@
       .region {
         position: absolute;
         bottom: 39px;
-		margin-left:1px;
+        margin-left:1px;
         width: 100%;
         height: 50px;
         display: flex;
