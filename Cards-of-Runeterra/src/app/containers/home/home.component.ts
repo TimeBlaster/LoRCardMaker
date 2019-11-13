@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   attack: number;
   health: number;
 
+  subtype: string;	
   cardTitle: string;
   description: string;
   levelup: string;

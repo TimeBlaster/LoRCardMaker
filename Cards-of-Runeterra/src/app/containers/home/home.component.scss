@@ -87,13 +87,14 @@
     }
 
     .text-input-container {
-      height: 150px;
+      height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
 
       .name,
       .description,
+	  .subtype,
       .levelup {
         display: flex;
         flex-direction: row;
@@ -235,6 +236,26 @@
           text-align: center;
           margin: 0;
         }
+		
+		.unit-typing-container{
+			position: absolute;
+			top: 2px;
+			left: 80px;
+			
+			.typing-bar{
+				width: 180px;
+			}
+			
+			.subtype{
+				color: #ADA89D;
+				font-family: "UniversLTStd-UltraCn";
+				letter-spacing: 3px;
+				text-align: center;
+				text-transform: uppercase;
+				margin-top:-34px;
+				margin-left: 5px;
+			}
+		}
 
         .title {
 		  font-size: 30px;

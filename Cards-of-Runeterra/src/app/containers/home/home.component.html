@@ -120,6 +120,13 @@
             <input [(ngModel)]="description">
           </label>
         </div>
+		
+		<div class="subtype" *ngIf="type !== CardType.Spell">
+          <p class=title>Subtype</p>
+          <label>
+            <input [(ngModel)]="subtype">
+          </label>
+        </div>
 
         <div class="levelup" *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
           <p class=title>Level up</p>
@@ -187,9 +194,15 @@
         </div>
 
         <div class="unit-info-container" *ngIf="type !== CardType.Spell; else SpellInfo">
+		  <div class="unit-typing-container" *ngIf="subtype">
+			<img class="typing-bar" src="assets/cards/typing.png" >
+			<p class="subtype">{{ subtype }}</p>
+		  </div>
+		  
           <p class="title">{{ cardTitle }}</p>
           <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
             *ngIf="uniqueUnitKeyword(); else MultipleKeyword">
+			
           <ng-template #MultipleKeyword>
             <div class="unit-keyword-icon-container">
               <div *ngFor="let keyword of unitKeywords | keyvalue">
