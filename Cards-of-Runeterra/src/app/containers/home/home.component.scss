@@ -218,7 +218,7 @@
 
       .unit-info-container {
         position: absolute;
-        bottom: 92px;
+        bottom: 100px;
         left: 0;
         width: 100%;
         height: 80%;
@@ -237,6 +237,8 @@
         }
 
         .title {
+		  font-size: 30px;
+		  margin-bottom: -3px;
           text-transform: uppercase;
         }
 
@@ -250,12 +252,14 @@
         }
 
         .unit-keyword-icon {
-          height: 40px;
+          height: 38px;
           margin: 2px 7px 0 7px;
         }
 
         .description {
           margin-top: 10px;
+          margin-bottom: 3px;
+		  font-size: 18px;
         }
 
         .levelup-bar {
@@ -264,8 +268,10 @@
         }
 
         .levelup {
-          color: #c28562;
-          margin-top: 10px;
+          color: rgb(192,132,95);
+	      font-size: 16px;
+		  font-weight:bold;
+          margin-top: 12px;
         }
       }
 
@@ -322,7 +328,8 @@
 
       .region {
         position: absolute;
-        bottom: 41px;
+        bottom: 39px;
+		margin-left:1px;
         width: 100%;
         height: 50px;
         display: flex;
