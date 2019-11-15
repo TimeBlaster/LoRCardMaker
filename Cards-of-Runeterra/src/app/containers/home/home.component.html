@@ -208,6 +208,10 @@
     </div>
 
     <div class="card-container">
+	  <div class="reset-container">
+		<button mat-stroked-button (click)="resetCard()">Reset</button>
+	  </div>
+	  
       <div class="card" id="card">
         <img class="card-base" [src]="'assets/cards/' + type +
         (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
