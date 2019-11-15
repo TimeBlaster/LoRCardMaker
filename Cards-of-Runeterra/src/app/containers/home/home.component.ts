@@ -82,23 +82,15 @@ export class HomeComponent implements OnInit {
   }
   
   switchSpellKeyword(keyword: SpellKeywords){
-	  if(keyword === SpellKeywords.Burst){
+	  if(keyword === SpellKeywords.Burst || keyword === SpellKeywords.Fast || keyword === SpellKeywords.Slow){
 		this.spellKeyword = keyword;
-		this.spellKeywords.set(SpellKeywords.Fast, false);
-	    this.spellKeywords.set(SpellKeywords.Slow, false);
+		this.spellKeywords.set(SpellKeywords.Burst, keyword === SpellKeywords.Burst);
+	    this.spellKeywords.set(SpellKeywords.Fast, keyword === SpellKeywords.Fast);
+		this.spellKeywords.set(SpellKeywords.Slow, keyword === SpellKeywords.Slow);
 	  }
-	  else if(keyword === SpellKeywords.Fast){
-		this.spellKeyword = keyword;
-		this.spellKeywords.set(SpellKeywords.Burst, false);
-	    this.spellKeywords.set(SpellKeywords.Slow, false);
+	  else{
+		this.spellKeywords.set(keyword, !this.spellKeywords.get(keyword));
 	  }
-	  else if(keyword === SpellKeywords.Slow){
-		this.spellKeyword = keyword;
-		this.spellKeywords.set(SpellKeywords.Burst, false);
-	    this.spellKeywords.set(SpellKeywords.Fast, false);
-	  }
-	  
-	  this.spellKeywords.set(keyword, !this.spellKeywords.get(keyword));
   }
 
   switchUnitKeyword(keyword: UnitKeywords) {

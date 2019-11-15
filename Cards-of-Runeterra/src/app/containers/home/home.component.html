@@ -56,13 +56,15 @@
         <div *ngIf="type === CardType.Spell; else Unit">
           <div class="keywords-container">
             <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
-            (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeyword === SpellKeywords.Burst">
-            <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
-            (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeyword === SpellKeywords.Slow">
+            (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
-            (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeyword === SpellKeywords.Fast">
+            (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
+			<img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
+            (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
-            (click)="spellFleeting = !spellFleeting" [class.selected]="spellFleeting">
+              (click)="switchSpellKeyword(SpellKeywords.Fleeting)" [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
+            <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
+              (click)="switchSpellKeyword(SpellKeywords.Overwhelm)" [class.selected]="spellKeywords.get(SpellKeywords.Overwhelm)">
           </div>
         </div>
 
