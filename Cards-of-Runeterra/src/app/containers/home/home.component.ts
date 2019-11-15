@@ -15,7 +15,7 @@ import { Keywords } from 'src/app/models/keywords.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  mana: string;
+  mana: number;
   attack: number;
   health: number;
 
@@ -24,12 +24,12 @@ export class HomeComponent implements OnInit {
   description = '';
   formattedDescription: string;
   levelup: string;
-
-  Rarity = Rarity;
-  rarity: Rarity = Rarity.None;
-
+  
   CardType = CardType;
   type: CardType = CardType.Follower;
+  
+  Rarity = Rarity;
+  rarity: Rarity = Rarity.None;
 
   Region = Region;
   region: Region;
@@ -142,6 +142,45 @@ export class HomeComponent implements OnInit {
         return key;
       }
     }
+  }
+  
+  resetCard(){
+	this.mana = null;
+	this.attack = null;
+	this.health = null;
+	this.subtype = null;
+	this.cardTitle = null;
+	this.description = null;
+	this.levelup = null;
+	this.region = null;
+	this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
+	this.spellKeyword = SpellKeywords.Burst;
+	this.resetUnitKeywords();
+	this.resetSpellKeywords();
+  }	
+
+  resetUnitKeywords(){
+	this.unitKeywords.set(UnitKeywords.Ephemeral, false);
+    this.unitKeywords.set(UnitKeywords.Challenger, false);
+    this.unitKeywords.set(UnitKeywords.Fearsome, false);
+    this.unitKeywords.set(UnitKeywords.QuickAttack, false);
+    this.unitKeywords.set(UnitKeywords.Elusive, false);
+    this.unitKeywords.set(UnitKeywords.CantBlock, false);
+    this.unitKeywords.set(UnitKeywords.Tough, false);
+    this.unitKeywords.set(UnitKeywords.Overwhelm, false);
+    this.unitKeywords.set(UnitKeywords.Regeneration, false);
+    this.unitKeywords.set(UnitKeywords.Lifesteal, false);
+    this.unitKeywords.set(UnitKeywords.Barrier, false);
+    this.unitKeywords.set(UnitKeywords.DoubleAttack, false);
+    this.unitKeywords.set(UnitKeywords.Fleeting, false);
+  }
+
+  resetSpellKeywords(){
+	this.spellKeywords.set(SpellKeywords.Burst, true);
+    this.spellKeywords.set(SpellKeywords.Fast, false);
+    this.spellKeywords.set(SpellKeywords.Slow, false);
+    this.spellKeywords.set(SpellKeywords.Fleeting, false);
+    this.spellKeywords.set(SpellKeywords.Overwhelm, false);
   }
 
   addColorTag(type: string) {
