@@ -313,6 +313,10 @@
           font-weight:bold;
           margin-top: 12px;
         }
+
+        ::ng-deep .action {
+          color: #d6b74c;
+        }
       }
 
       .spell-info-container {

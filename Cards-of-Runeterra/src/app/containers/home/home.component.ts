@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { CardType } from 'src/app/models/card-type.model';
 import { Region } from 'src/app/models/region.model';
 import { Rarity } from 'src/app/models/rarity.model';
@@ -18,9 +18,10 @@ export class HomeComponent implements OnInit {
   attack: number;
   health: number;
 
-  subtype: string;	
+  subtype: string;
   cardTitle: string;
   description: string;
+  formattedDescription: string;
   levelup: string;
 
   Rarity = Rarity;
@@ -38,6 +39,8 @@ export class HomeComponent implements OnInit {
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
+
+  constructor(private elementRef:ElementRef) {}
 
   ngOnInit() {
     this.unitKeywords = new Map<UnitKeywords, boolean>();
@@ -110,6 +113,36 @@ export class HomeComponent implements OnInit {
 
   uniqueSpellKeyword(): boolean {
     return !this.spellFleeting;
+  }
+
+  addColorTag(type: string) {
+    console.log('tod', this.description);
+
+    if (type === 'action') {
+      this.description += '<action></action>'
+    } else if (type === 'name') {
+      this.description += '<name></name>'
+    }
+    this.onDescriptionChange(this.description);
+
+  }
+
+  onDescriptionChange(description) {
+
+    var list = document.getElementById("action-element-ref");
+    list.innerHTML = "";
+
+    this.description = description;
+
+    description = '<div class="first-child">' + description + '</div>';
+    description = description.replace(/<action>/g, '<span class="action">');
+    description = description.replace(/<\/action>/g, '</span>');
+
+    var elementRef = this.elementRef.nativeElement.querySelector('.action-element-ref');
+
+    if (elementRef) {
+      elementRef.insertAdjacentHTML('afterbegin', description);
+    }
   }
 
   download() {
