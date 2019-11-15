@@ -6,6 +6,7 @@ import { SpellKeywords } from 'src/app/models/spell-keywords.model';
 import { UnitKeywords } from 'src/app/models/unit-keywords.model';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+import { Keywords } from 'src/app/models/keywords.model';
 
 @Component({
   selector: 'cr-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   subtype: string;
   cardTitle: string;
-  description: string;
+  description = '';
   formattedDescription: string;
   levelup: string;
 
@@ -39,6 +40,8 @@ export class HomeComponent implements OnInit {
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
+
+  Keywords = Keywords;
 
   constructor(private elementRef: ElementRef) { }
 
@@ -146,14 +149,22 @@ export class HomeComponent implements OnInit {
       this.description += '<action></action>'
     } else if (type === 'name') {
       this.description += '<name></name>'
+    } else if (type === 'keyword') {
+      this.description += '<keyword></keyword>'
+    } else {
+      Object.keys(Keywords).map(key => {
+        if (type === Keywords[key]) {
+          this.description += '<' + type + '>';
+        }
+      });
     }
-    this.onDescriptionChange(this.description);
 
+    this.onDescriptionChange(this.description);
   }
 
   onDescriptionChange(description) {
 
-    var list = document.getElementById("action-element-ref");
+    var list = document.getElementById("description-element-ref");
     list.innerHTML = "";
 
     this.description = description;
@@ -161,9 +172,15 @@ export class HomeComponent implements OnInit {
     description = '<div class="first-child">' + description + '</div>';
     description = description.replace(/<action>/g, '<span class="action">');
     description = description.replace(/<\/action>/g, '</span>');
+    description = description.replace(/<name>/g, '<span class="name">');
+    description = description.replace(/<\/name>/g, '</span>');
 
-    var elementRef = this.elementRef.nativeElement.querySelector('.action-element-ref');
+    Object.keys(Keywords).map(key => {
+      var regex = new RegExp('<' + Keywords[key] + '>', 'g')
+      description = description.replace(regex, '<img class="inline-icon" src="assets/keywords/inline/' + Keywords[key] + '.png">');
+    });
 
+    var elementRef = this.elementRef.nativeElement.querySelector('.description-element-ref');
     if (elementRef) {
       elementRef.insertAdjacentHTML('afterbegin', description);
     }

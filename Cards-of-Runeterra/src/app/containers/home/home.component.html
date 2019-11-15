@@ -56,15 +56,18 @@
         <div *ngIf="type === CardType.Spell; else Unit">
           <div class="keywords-container">
             <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
-            (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
+              (click)="switchSpellKeyword(SpellKeywords.Burst)"
+              [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
-            (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
-			<img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
-            (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
+              (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
+            <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
+              (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
-              (click)="switchSpellKeyword(SpellKeywords.Fleeting)" [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
+              (click)="switchSpellKeyword(SpellKeywords.Fleeting)"
+              [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
             <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
-              (click)="switchSpellKeyword(SpellKeywords.Overwhelm)" [class.selected]="spellKeywords.get(SpellKeywords.Overwhelm)">
+              (click)="switchSpellKeyword(SpellKeywords.Overwhelm)"
+              [class.selected]="spellKeywords.get(SpellKeywords.Overwhelm)">
           </div>
         </div>
 
@@ -113,7 +116,6 @@
       <div class="text-input-container">
         <div class="name">
           <p class="title">Card title</p>
-          <!-- <input [(ngModel)]="cardTitle"> -->
           <label class="field a-field a-field_a1">
             <input class="field__input a-field__input" [(ngModel)]="cardTitle">
             <span class="a-field__label-wrap">
@@ -122,13 +124,19 @@
           </label>
         </div>
 
-        <div class="description">
-          <p class=title>Description</p>
+        <div class="tag-container">
           <button (click)="addColorTag('name')">name</button>
           <button (click)="addColorTag('action')">action</button>
-          <!-- <label>
-            <input [(ngModel)]="description">
-          </label> -->
+          <button (click)="addColorTag('keyword')">keyword</button>
+          <div *ngFor="let item of Keywords | keyvalue">
+            <img class="inline-icon" [src]='"assets/keywords/inline/" + item.value + ".png"'
+              (click)="addColorTag(item.value)">
+          </div>
+        </div>
+
+        <div class="description">
+          <p class=title>Description</p>
+
           <label class="field a-field a-field_a1">
             <input class="field__input a-field__input" [ngModel]="description"
               (ngModelChange)="onDescriptionChange($event)">
@@ -140,9 +148,7 @@
 
         <div class="subtype" *ngIf="type !== CardType.Spell">
           <p class=title>Subtype</p>
-          <!-- <label>
-            <input [(ngModel)]="subtype">
-          </label> -->
+
           <label class="field a-field a-field_a1">
             <input class="field__input a-field__input" [(ngModel)]="subtype">
             <span class="a-field__label-wrap">
@@ -154,9 +160,7 @@
 
         <div class="levelup" *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
           <p class=title>Level up</p>
-          <!-- <label>
-            <input [(ngModel)]="levelup">
-          </label> -->
+
           <label class="field a-field a-field_a1">
             <input class="field__input a-field__input" [(ngModel)]="levelup">
             <span class="a-field__label-wrap">
@@ -242,7 +246,7 @@
             </div>
           </ng-template>
 
-          <div class="action-element-ref" #two id="action-element-ref"></div>
+          <div class="description-element-ref" id="description-element-ref"></div>
 
           <img class="levelup-bar" src="assets/cards/champion/levelupbar.png"
             *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
@@ -254,26 +258,18 @@
             <p class="title">{{ cardTitle }}</p>
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
               *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
-
-            <!-- <ng-template #MultipleSpellKeyword>
-              <div class="spell-keyword-icon-container">
-                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + spellKeyword + '.png'">
-                <img class="spell-keyword-icon" src="assets/keywords/icons/fleeting.png">
-              </div>
-            </ng-template> -->
-
             <p class="description">{{ description }}</p>
           </div>
         </ng-template>
 
-          <ng-template #MultipleSpellKeyword>
-            <div class="spell-keyword-icon-container">
-              <div *ngFor="let keyword of spellKeywords | keyvalue">
-                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
-                  *ngIf="keyword.value">
-              </div>
+        <ng-template #MultipleSpellKeyword>
+          <div class="spell-keyword-icon-container">
+            <div *ngFor="let keyword of spellKeywords | keyvalue">
+              <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                *ngIf="keyword.value">
             </div>
-          </ng-template>
+          </div>
+        </ng-template>
 
         <div class="region" *ngIf="region">
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
