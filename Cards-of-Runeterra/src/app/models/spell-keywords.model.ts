@@ -1,5 +1,8 @@
 export enum SpellKeywords {
   Slow = 'slow',
   Fast = 'fast',
-  Burst = 'burst'
+  Burst = 'burst',
+  
+  Fleeting = 'fleeting',
+  Overwhelm = 'overwhelm'
 }

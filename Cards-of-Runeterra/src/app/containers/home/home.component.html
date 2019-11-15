@@ -252,18 +252,19 @@
           <div class="spell-info-container">
             <p class="title">{{ cardTitle }}</p>
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
-            *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
-
-            <ng-template #MultipleSpellKeyword>
-                <div class="spell-keyword-icon-container">
-                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + spellKeyword + '.png'">
-                <img class="spell-keyword-icon" src="assets/keywords/icons/fleeting.png">
-              </div>
-            </ng-template>
-
+              *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
             <p class="description">{{ description }}</p>
           </div>
         </ng-template>
+
+          <ng-template #MultipleSpellKeyword>
+            <div class="unit-keyword-icon-container">
+              <div *ngFor="let keyword of spellKeywords | keyvalue">
+                <img class="unit-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                  *ngIf="keyword.value">
+              </div>
+            </div>
+          </ng-template>
 
         <div class="region" *ngIf="region">
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
