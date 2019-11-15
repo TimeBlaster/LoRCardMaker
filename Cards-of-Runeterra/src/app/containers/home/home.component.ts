@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit {
 
   SpellKeywords = SpellKeywords;
   spellKeyword: SpellKeywords = SpellKeywords.Burst;
-  spellFleeting = false;
+  spellKeywords: Map<SpellKeywords, boolean>;
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
 
-  constructor(private elementRef:ElementRef) {}
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
     this.unitKeywords = new Map<UnitKeywords, boolean>();
@@ -58,6 +58,13 @@ export class HomeComponent implements OnInit {
     this.unitKeywords.set(UnitKeywords.DoubleAttack, false);
     this.unitKeywords.set(UnitKeywords.Fleeting, false);
 
+    this.spellKeywords = new Map<SpellKeywords, boolean>();
+    this.spellKeywords.set(SpellKeywords.Burst, true);
+    this.spellKeywords.set(SpellKeywords.Fast, false);
+    this.spellKeywords.set(SpellKeywords.Slow, false);
+    this.spellKeywords.set(SpellKeywords.Fleeting, false);
+    this.spellKeywords.set(SpellKeywords.Overwhelm, false);
+
     this.spellKeyword = SpellKeywords.Burst;
   }
 
@@ -71,7 +78,6 @@ export class HomeComponent implements OnInit {
     } else if (!nonChampionRarity.includes(this.rarity)) {
       this.rarity = Rarity.None;
     }
-
   }
 
   switchRegion(region: Region) {
@@ -79,7 +85,14 @@ export class HomeComponent implements OnInit {
   }
 
   switchSpellKeyword(keyword: SpellKeywords) {
-    this.spellKeyword = keyword;
+    if (keyword === SpellKeywords.Burst || keyword === SpellKeywords.Fast || keyword === SpellKeywords.Slow) {
+      this.spellKeyword = keyword;
+      this.spellKeywords.set(SpellKeywords.Burst, keyword === SpellKeywords.Burst);
+      this.spellKeywords.set(SpellKeywords.Fast, keyword === SpellKeywords.Fast);
+      this.spellKeywords.set(SpellKeywords.Slow, keyword === SpellKeywords.Slow);
+    } else {
+      this.spellKeywords.set(keyword, !this.spellKeywords.get(keyword));
+    }
   }
 
   switchUnitKeyword(keyword: UnitKeywords) {
@@ -97,10 +110,8 @@ export class HomeComponent implements OnInit {
         counter++;
       }
     }
-    if (counter === 1) {
-      return true;
-    }
-    return false;
+
+    return (counter === 1)
   }
 
   getUniqueUnitKeyword(): UnitKeywords {
@@ -112,12 +123,25 @@ export class HomeComponent implements OnInit {
   }
 
   uniqueSpellKeyword(): boolean {
-    return !this.spellFleeting;
+    let counter = 0;
+    for (let value of this.spellKeywords.values()) {
+      if (value) {
+        counter++;
+      }
+    }
+
+    return (counter === 1)
+  }
+
+  getUniqueSpellKeyword(): SpellKeywords {
+    for (let key of this.spellKeywords.keys()) {
+      if (this.spellKeywords.get(key)) {
+        return key;
+      }
+    }
   }
 
   addColorTag(type: string) {
-    console.log('tod', this.description);
-
     if (type === 'action') {
       this.description += '<action></action>'
     } else if (type === 'name') {

@@ -56,13 +56,15 @@
         <div *ngIf="type === CardType.Spell; else Unit">
           <div class="keywords-container">
             <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
-              (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeyword === SpellKeywords.Burst">
-            <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
-              (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeyword === SpellKeywords.Slow">
+            (click)="switchSpellKeyword(SpellKeywords.Burst)" [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
-              (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeyword === SpellKeywords.Fast">
+            (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
+			<img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
+            (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
             <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
-              (click)="spellFleeting = !spellFleeting" [class.selected]="spellFleeting">
+              (click)="switchSpellKeyword(SpellKeywords.Fleeting)" [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
+            <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
+              (click)="switchSpellKeyword(SpellKeywords.Overwhelm)" [class.selected]="spellKeywords.get(SpellKeywords.Overwhelm)">
           </div>
         </div>
 
@@ -253,16 +255,25 @@
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
               *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
 
-            <ng-template #MultipleSpellKeyword>
+            <!-- <ng-template #MultipleSpellKeyword>
               <div class="spell-keyword-icon-container">
                 <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + spellKeyword + '.png'">
                 <img class="spell-keyword-icon" src="assets/keywords/icons/fleeting.png">
               </div>
-            </ng-template>
+            </ng-template> -->
 
             <p class="description">{{ description }}</p>
           </div>
         </ng-template>
+
+          <ng-template #MultipleSpellKeyword>
+            <div class="spell-keyword-icon-container">
+              <div *ngFor="let keyword of spellKeywords | keyvalue">
+                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                  *ngIf="keyword.value">
+              </div>
+            </div>
+          </ng-template>
 
         <div class="region" *ngIf="region">
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
