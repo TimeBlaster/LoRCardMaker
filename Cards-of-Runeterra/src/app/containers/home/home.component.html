@@ -260,9 +260,9 @@
         </ng-template>
 
           <ng-template #MultipleSpellKeyword>
-            <div class="unit-keyword-icon-container">
+            <div class="spell-keyword-icon-container">
               <div *ngFor="let keyword of spellKeywords | keyvalue">
-                <img class="unit-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
                   *ngIf="keyword.value">
               </div>
             </div>
