@@ -45,6 +45,8 @@ export class HomeComponent implements OnInit {
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
 
+  hasImage = false;
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
@@ -147,7 +149,6 @@ export class HomeComponent implements OnInit {
   }
 
   resetCard() {
-    this.imagePath = null;
     this.mana = null;
     this.attack = null;
     this.health = null;
@@ -164,6 +165,8 @@ export class HomeComponent implements OnInit {
 
     let input: any = document.getElementById("uploader");
     input.value = "";
+
+    this.hasImage = false;
   }
 
   resetUnitKeywords() {
@@ -242,7 +245,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  upload(event) {
+  upload() {
     var reader = new FileReader();
     reader.onload = (e: any) => {
       var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
@@ -256,13 +259,15 @@ export class HomeComponent implements OnInit {
 
     let input: any = document.getElementById("uploader");
     reader.readAsDataURL(input.files[0]);
+
+    this.hasImage = true;
   }
 
   download() {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
     const card = document.getElementById('sized-card');
 
-    domtoimage.toBlob(card)
+    domtoimage.toBlob(card, {width:680, height:1024})
       .then(function (blob: Blob) {
         saveAs(blob, title);
       }, (err) => {}
