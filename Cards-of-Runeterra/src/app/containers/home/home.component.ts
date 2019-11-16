@@ -15,6 +15,8 @@ import { Keywords } from 'src/app/models/keywords.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
+  imagePath: '';
+
   mana: number;
   attack: number;
   health: number;
@@ -34,14 +36,14 @@ export class HomeComponent implements OnInit {
   Region = Region;
   region: Region;
 
+  Keywords = Keywords;
+
   SpellKeywords = SpellKeywords;
   spellKeyword: SpellKeywords = SpellKeywords.Burst;
   spellKeywords: Map<SpellKeywords, boolean>;
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
-
-  Keywords = Keywords;
 
   hasImage = false;
 
@@ -160,6 +162,11 @@ export class HomeComponent implements OnInit {
     this.spellKeyword = SpellKeywords.Burst;
     this.resetUnitKeywords();
     this.resetSpellKeywords();
+
+    let input: any = document.getElementById("uploader");
+    input.value = "";
+
+    this.hasImage = false;
   }
 
   resetUnitKeywords() {
@@ -252,6 +259,7 @@ export class HomeComponent implements OnInit {
 
     let input: any = document.getElementById("uploader");
     reader.readAsDataURL(input.files[0]);
+
     this.hasImage = true;
   }
 

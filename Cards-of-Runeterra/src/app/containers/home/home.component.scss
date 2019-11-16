@@ -344,15 +344,15 @@
         }
 
         ::ng-deep .action {
-          color: #d2926c;
+          color:rgb(250,214,90);
         }
 
         ::ng-deep .name {
-          color: #4574ac;
+          color:rgb(73,160,248);
         }
 
         ::ng-deep .keyword {
-          color: #e7c75a;
+          color:  rgb(250,214,90);
         }
 
         ::ng-deep .inline-icon {
@@ -462,14 +462,11 @@
   position: absolute;
   left: -9999px;
   top: -9999px;
-  height: 1024px;
 
   .sized-card {
     position: relative;
     z-index: 2;
     overflow: hidden;
-    width: 680px;
-    height: 1024px;
     margin: 0;
 
     .unit-card-image-container {
@@ -477,8 +474,6 @@
       top: 0;
       left: 0;
       z-index: 1;
-      width: 640px;
-      height: 1024px;
       margin: 0;
 
       .sized-card-image {
@@ -492,7 +487,8 @@
         margin-right: auto;
         width: 100%;
         max-height: 1024px;
-
+        width: 640px;
+        height: 1024px;
         object-fit: cover;
         border-radius: 30px;
       }
@@ -637,15 +633,15 @@
       }
 
       ::ng-deep .action {
-        color: #d2926c;
+        color: rgb(250,214,90);
       }
 
       ::ng-deep .name {
-        color: #4574ac;
+        color:rgb(73,160,248);
       }
 
       ::ng-deep .keyword {
-        color: #e7c75a;
+        color:  rgb(250,214,90);
       }
 
       ::ng-deep .inline-icon {
