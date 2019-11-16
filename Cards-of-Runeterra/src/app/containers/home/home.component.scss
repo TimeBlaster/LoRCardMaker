@@ -462,14 +462,11 @@
   position: absolute;
   left: -9999px;
   top: -9999px;
-  height: 1024px;
 
   .sized-card {
     position: relative;
     z-index: 2;
     overflow: hidden;
-    width: 680px;
-    height: 1024px;
     margin: 0;
 
     .card-image-container {
@@ -477,8 +474,6 @@
       top: 0;
       left: 0;
       z-index: 1;
-      width: 640px;
-      height: 1024px;
       margin: 0;
 
       .sized-card-image {
