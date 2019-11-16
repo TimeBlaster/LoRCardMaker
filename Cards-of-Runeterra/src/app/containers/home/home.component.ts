@@ -15,6 +15,8 @@ import { Keywords } from 'src/app/models/keywords.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
+  imagePath: '';
+
   mana: number;
   attack: number;
   health: number;
@@ -34,16 +36,14 @@ export class HomeComponent implements OnInit {
   Region = Region;
   region: Region;
 
+  Keywords = Keywords;
+
   SpellKeywords = SpellKeywords;
   spellKeyword: SpellKeywords = SpellKeywords.Burst;
   spellKeywords: Map<SpellKeywords, boolean>;
 
   UnitKeywords = UnitKeywords;
   unitKeywords: Map<UnitKeywords, boolean>;
-
-  Keywords = Keywords;
-
-  hasImage = false;
 
   constructor(private elementRef: ElementRef) { }
 
@@ -147,6 +147,7 @@ export class HomeComponent implements OnInit {
   }
 
   resetCard() {
+    this.imagePath = null;
     this.mana = null;
     this.attack = null;
     this.health = null;
@@ -160,6 +161,9 @@ export class HomeComponent implements OnInit {
     this.spellKeyword = SpellKeywords.Burst;
     this.resetUnitKeywords();
     this.resetSpellKeywords();
+
+    let input: any = document.getElementById("uploader");
+    input.value = "";
   }
 
   resetUnitKeywords() {
@@ -238,7 +242,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  upload() {
+  upload(event) {
     var reader = new FileReader();
     reader.onload = (e: any) => {
       var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
@@ -252,14 +256,13 @@ export class HomeComponent implements OnInit {
 
     let input: any = document.getElementById("uploader");
     reader.readAsDataURL(input.files[0]);
-    this.hasImage = true;
   }
 
   download() {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
     const card = document.getElementById('sized-card');
 
-    domtoimage.toBlob(card, {width:680, height:1024})
+    domtoimage.toBlob(card)
       .then(function (blob: Blob) {
         saveAs(blob, title);
       }, (err) => {}
