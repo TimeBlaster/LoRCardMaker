@@ -296,7 +296,7 @@
 
         <div class="sized-card" id="sized-card">
           <div class="card-image-container">
-            <img class="sized-card-image" />
+            <img class="sized-card-image" *ngIf="hasImage" />
           </div>
 
           <img class="card-base" [src]="'assets/cards/' + type +

@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit {
 
   Keywords = Keywords;
 
+  hasImage = false;
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
@@ -250,14 +252,17 @@ export class HomeComponent implements OnInit {
 
     let input: any = document.getElementById("uploader");
     reader.readAsDataURL(input.files[0]);
+    this.hasImage = true;
   }
 
   download() {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
     const card = document.getElementById('sized-card');
+
     domtoimage.toBlob(card)
       .then(function (blob: Blob) {
         saveAs(blob, title);
-      });
+      }, (err) => {}
+      );
   }
 }
