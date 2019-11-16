@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
 
   .filters-container {
     color: black;
@@ -177,11 +177,11 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    z-index: 2;
+    z-index: 4;
 
     .card {
       position: relative;
-      z-index: 2;
+      z-index: 4;
       overflow: hidden;
       width: 340px;
       height: 512px;
@@ -190,7 +190,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
         width: 320px;
 
         .card-image {
@@ -198,7 +198,7 @@
           top: 15px;
           left: 10px;
           height: 462px;
-          z-index: 1;
+          z-index: 2;
           display: none;
           margin-left: auto;
           margin-right: auto;
@@ -212,7 +212,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
         width: 320px;
         height: 20px;
 
@@ -221,7 +221,7 @@
           top: 25px;
           left: 42px;
           height: 250px;
-          z-index: 1;
+          z-index: 2;
           display: none;
           margin-left: auto;
           margin-right: auto;
@@ -231,9 +231,33 @@
         }
       }
 
+      .spell-card-bottom-image-container {
+        position: absolute;
+        top: 226px;
+        left: 10px;
+        z-index: 1;
+        width: 320px;
+        height: 245px;
+        border-top-left-radius: 41px;
+        border-top-right-radius: 41px;
+        overflow: hidden;
+
+        .card-bottom-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: none;
+          z-index: 1;
+          object-fit: cover;
+          filter: blur(40px) brightness(80%);
+        }
+      }
+
       .card-base {
         width: 340px;
-        z-index: 2;
+        z-index: 4;
         position: relative;
       }
 
@@ -243,7 +267,7 @@
         position: absolute;
         top: 24px;
         left: 24px;
-        z-index: 2;
+        z-index: 4;
 
         .mana {
           font-family: "BeaufortforLOLBold";
@@ -259,7 +283,7 @@
         position: absolute;
         bottom: 40px;
         left: 20px;
-        z-index: 2;
+        z-index: 4;
 
         .attack {
           font-family: "BeaufortforLOLBold";
@@ -275,7 +299,7 @@
         position: absolute;
         bottom: 40px;
         right: 20px;
-        z-index: 2;
+        z-index: 4;
 
         .health {
           font-family: "BeaufortforLOLBold";
@@ -296,7 +320,7 @@
         justify-content: flex-end;
         align-items: center;
         text-align: center;
-        z-index: 2;
+        z-index: 4;
 
         .title,
         .description,
@@ -389,12 +413,12 @@
         bottom: 60px;
         left: 0;
         width: 100%;
-        height: 32%;
+        height: 164px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        z-index: 2;
+        z-index: 4;
 
         .title,
         .description,
@@ -423,19 +447,29 @@
           margin: 2px 7px 0 7px;
         }
 
-        .description {
+        .spell-description-element-ref {
           margin-top: 10px;
-          color: #f1f1f1;
+          margin-bottom: 3px;
+          font-size: 18px;
+          width: 80%;
+          text-align: center;
         }
 
-        .levelup-bar {
-          width: 100%;
-          margin-top: 5px;
+        ::ng-deep .action {
+          color: rgb(250, 214, 90);
         }
 
-        .levelup {
-          color: #c28562;
-          margin-top: 10px;
+        ::ng-deep .name {
+          color: rgb(73, 160, 248);
+        }
+
+        ::ng-deep .keyword {
+          color: rgb(250, 214, 90);
+        }
+
+        ::ng-deep .inline-icon {
+          width: 20px;
+          margin-bottom: -4px;
         }
       }
 
@@ -445,10 +479,9 @@
         font-size: 20px;
       }
 
-      .region {
+      .unit-region {
         position: absolute;
-        bottom: 39px;
-        margin-left: 1px;
+        bottom: 29px;
         width: 100%;
         height: 50px;
         display: flex;
@@ -458,7 +491,24 @@
         .region-icon {
           width: 44px;
           opacity: 0.6;
-          z-index: 2;
+          z-index: 4;
+        }
+      }
+
+      .spell-region {
+        position: absolute;
+        bottom: 39px;
+        margin-left: -1px;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .region-icon {
+          width: 44px;
+          opacity: 0.6;
+          z-index: 4;
         }
       }
     }
@@ -481,14 +531,14 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  z-index: 2;
+  z-index: 4;
   position: absolute;
   left: -9px;
   top: 900px;
 
   .sized-card {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     overflow: hidden;
     margin: 0;
     width: 680px;
@@ -498,7 +548,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: 2;
       margin: 0;
       width: 640px;
 
@@ -507,7 +557,7 @@
         top: 30px;
         left: 20px;
         height: 924px;
-        z-index: 1;
+        z-index: 2;
         display: none;
         margin-left: auto;
         margin-right: auto;
@@ -521,7 +571,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: 2;
       width: 640px;
       height: 40px;
 
@@ -530,7 +580,7 @@
         top: 50px;
         left: 84px;
         height: 500px;
-        z-index: 1;
+        z-index: 2;
         display: none;
         margin-left: auto;
         margin-right: auto;
@@ -540,9 +590,33 @@
       }
     }
 
+    .spell-card-bottom-image-container {
+      position: absolute;
+      top: 452px;
+      left: 20px;
+      z-index: 1;
+      width: 640px;
+      height: 490px;
+      border-top-left-radius: 82px;
+      border-top-right-radius: 82px;
+      overflow: hidden;
+
+      .sized-card-bottom-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: none;
+        z-index: 1;
+        object-fit: cover;
+        filter: blur(40px) brightness(80%);
+      }
+    }
+
     .card-base {
       width: 680px;
-      z-index: 2;
+      z-index: 4;
       position: relative;
     }
 
@@ -552,7 +626,7 @@
       position: absolute;
       top: 48px;
       left: 48px;
-      z-index: 2;
+      z-index: 4;
 
       .mana {
         font-family: "BeaufortforLOLBold";
@@ -568,7 +642,7 @@
       position: absolute;
       bottom: 80px;
       left: 40px;
-      z-index: 2;
+      z-index: 4;
 
       .attack {
         font-family: "BeaufortforLOLBold";
@@ -585,7 +659,7 @@
       position: absolute;
       bottom: 80px;
       right: 40px;
-      z-index: 2;
+      z-index: 4;
 
       .health {
         font-family: "BeaufortforLOLBold";
@@ -606,7 +680,7 @@
       justify-content: flex-end;
       align-items: center;
       text-align: center;
-      z-index: 2;
+      z-index: 4;
 
       .title,
       .description,
@@ -697,15 +771,15 @@
 
     .spell-info-container {
       position: absolute;
-      bottom: 180px;
+      bottom: 120px;
       left: 0;
       width: 100%;
-      height: 32%;
+      height: 328px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      z-index: 2;
+      z-index: 4;
 
       .title,
       .description,
@@ -734,19 +808,12 @@
         margin: 4px 14px 0 14px;
       }
 
-      .description {
+      .sized-spell-description-element-ref {
         margin-top: 20px;
-        color: #f1f1f1;
-      }
-
-      .levelup-bar {
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      .levelup {
-        color: #c28562;
-        margin-top: 20px;
+        margin-bottom: 6px;
+        font-size: 36px;
+        width: 80%;
+        text-align: center;
       }
     }
 
@@ -756,10 +823,9 @@
       font-size: 40px;
     }
 
-    .region {
+    .unit-region {
       position: absolute;
       bottom: 78px;
-      margin-left: 2px;
       width: 100%;
       height: 100px;
       display: flex;
@@ -769,7 +835,24 @@
       .region-icon {
         width: 88px;
         opacity: 0.6;
-        z-index: 2;
+        z-index: 4;
+      }
+    }
+
+    .spell-region {
+      position: absolute;
+      bottom: 101px;
+      margin-left: -2px;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .region-icon {
+        width: 88px;
+        opacity: 0.6;
+        z-index: 4;
       }
     }
   }

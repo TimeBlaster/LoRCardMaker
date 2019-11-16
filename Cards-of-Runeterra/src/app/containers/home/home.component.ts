@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   subtype: string;
   cardTitle: string;
   description = '';
-  formattedDescription: string;
   levelup: string;
 
   CardType = CardType;
@@ -91,6 +90,10 @@ export class HomeComponent implements OnInit {
     if (this.reader) {
       this.reader.readAsDataURL(input.files[0]);
     }
+
+    setTimeout(() => {
+      this.onDescriptionChange(this.description);
+    })
   }
 
   switchRegion(region: Region) {
@@ -161,7 +164,6 @@ export class HomeComponent implements OnInit {
     this.subtype = null;
     this.cardTitle = null;
     this.description = '';
-    this.formattedDescription = null;
     this.levelup = null;
     this.region = null;
     this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
@@ -213,17 +215,30 @@ export class HomeComponent implements OnInit {
         }
       });
     }
-
     this.onDescriptionChange(this.description);
   }
 
   onDescriptionChange(description) {
 
     var list = document.getElementById("description-element-ref");
-    list.innerHTML = "";
+    if (list) {
+      list.innerHTML = "";
+    }
+
+    var spellList = document.getElementById("spell-description-element-ref");
+    if (spellList) {
+      spellList.innerHTML = "";
+    }
 
     var sizedList = document.getElementById("sized-description-element-ref");
-    sizedList.innerHTML = "";
+    if (sizedList) {
+      sizedList.innerHTML = "";
+    }
+
+    var sizedSpellList = document.getElementById("sized-spell-description-element-ref");
+    if (sizedSpellList) {
+      sizedSpellList.innerHTML = "";
+    }
 
     this.description = description;
 
@@ -245,9 +260,19 @@ export class HomeComponent implements OnInit {
       elementRef.insertAdjacentHTML('afterbegin', description);
     }
 
+    var spellElementRef = this.elementRef.nativeElement.querySelector('.spell-description-element-ref');
+    if (spellElementRef) {
+      spellElementRef.insertAdjacentHTML('afterbegin', description);
+    }
+
     var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-description-element-ref');
     if (sizedElementRef) {
       sizedElementRef.insertAdjacentHTML('afterbegin', description);
+    }
+
+    var sizedSpellElementRef = this.elementRef.nativeElement.querySelector('.sized-spell-description-element-ref');
+    if (sizedSpellElementRef) {
+      sizedSpellElementRef.insertAdjacentHTML('afterbegin', description);
     }
   }
 
@@ -257,16 +282,28 @@ export class HomeComponent implements OnInit {
     }
 
     this.reader.onload = (e: any) => {
-      var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
-      if (elementRef) {
-        elementRef.style.display = 'block';
-        elementRef.src = e.target.result;
+      var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+      var bottomCardImageElementRef = this.elementRef.nativeElement.querySelector('.card-bottom-image');
+      if (cardImageElementRef) {
+        cardImageElementRef.style.display = 'block';
+        cardImageElementRef.src = e.target.result;
+      }
+
+      if (bottomCardImageElementRef) {
+        bottomCardImageElementRef.style.display = 'block';
+        bottomCardImageElementRef.src = e.target.result;
       }
 
       var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+      var bottomSizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-bottom-image');
       if (sizedElementRef) {
         sizedElementRef.style.display = 'block';
         sizedElementRef.src = e.target.result;
+      }
+
+      if (bottomSizedElementRef) {
+        bottomSizedElementRef.style.display = 'block';
+        bottomSizedElementRef.src = e.target.result;
       }
     };
 
@@ -280,12 +317,11 @@ export class HomeComponent implements OnInit {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
     const card = document.getElementById('sized-card');
 
-    domtoimage.toBlob(card, {width:680, height:1024})
+    domtoimage.toBlob(card, { width: 680, height: 1024 })
       .then(function (blob: Blob) {
         saveAs(blob, title);
       }, (err) => {
         console.log('err', err);
-
       }
       );
   }
