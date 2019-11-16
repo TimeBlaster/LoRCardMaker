@@ -255,7 +255,7 @@ export class HomeComponent implements OnInit {
   download() {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
     const card = document.getElementById('sized-card');
-    domtoimage.toBlob(card)
+    domtoimage.toBlob(card, {width:680, height:1024})
       .then(function (blob: Blob) {
         saveAs(blob, title);
       });
