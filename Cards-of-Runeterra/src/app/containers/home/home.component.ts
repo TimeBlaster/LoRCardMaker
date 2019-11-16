@@ -150,7 +150,8 @@ export class HomeComponent implements OnInit {
     this.health = null;
     this.subtype = null;
     this.cardTitle = null;
-    this.description = null;
+    this.description = '';
+    this.formattedDescription = null;
     this.levelup = null;
     this.region = null;
     this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
