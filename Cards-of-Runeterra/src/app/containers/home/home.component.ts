@@ -206,6 +206,9 @@ export class HomeComponent implements OnInit {
     var list = document.getElementById("description-element-ref");
     list.innerHTML = "";
 
+    var sizedList = document.getElementById("sized-description-element-ref");
+    sizedList.innerHTML = "";
+
     this.description = description;
 
     description = '<div class="first-child">' + description + '</div>';
@@ -225,6 +228,11 @@ export class HomeComponent implements OnInit {
     if (elementRef) {
       elementRef.insertAdjacentHTML('afterbegin', description);
     }
+
+    var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-description-element-ref');
+    if (sizedElementRef) {
+      sizedElementRef.insertAdjacentHTML('afterbegin', description);
+    }
   }
 
   upload() {
@@ -233,6 +241,10 @@ export class HomeComponent implements OnInit {
       var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
       elementRef.style.display = 'block';
       elementRef.src = e.target.result;
+
+      var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+      sizedElementRef.style.display = 'block';
+      sizedElementRef.src = e.target.result;
     };
 
     let input: any = document.getElementById("uploader");
@@ -241,7 +253,7 @@ export class HomeComponent implements OnInit {
 
   download() {
     const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
-    let card = document.getElementById('card');
+    const card = document.getElementById('sized-card');
     domtoimage.toBlob(card)
       .then(function (blob: Blob) {
         saveAs(blob, title);

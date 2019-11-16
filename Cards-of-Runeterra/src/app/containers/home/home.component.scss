@@ -182,7 +182,9 @@
     .card {
       position: relative;
       z-index: 2;
-      overflow:hidden;
+      overflow: hidden;
+      width: 340px;
+      height: 512px;
 
       .card-image-container {
         position: absolute;
@@ -191,20 +193,20 @@
         z-index: 1;
         width: 320px;
 
-      .card-image {
-        position: absolute;
-        top: 15px;
-        left: 10px;
-        height: 462px;
-        z-index: 1;
-        display: none;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 30px;
+        .card-image {
+          position: absolute;
+          top: 15px;
+          left: 10px;
+          height: 462px;
+          z-index: 1;
+          display: none;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 30px;
+        }
       }
-    }
 
       .card-base {
         width: 340px;
@@ -322,10 +324,11 @@
           margin: 2px 7px 0 7px;
         }
 
-        .description {
+        .description-element-ref {
           margin-top: 10px;
           margin-bottom: 3px;
           font-size: 18px;
+          width: 80%;
         }
 
         .levelup-bar {
@@ -440,6 +443,293 @@
     button {
       color: black;
       border: 1px solid black;
+    }
+  }
+}
+
+// card to download
+.sized-card-container {
+  color: white;
+  min-width: 800px;
+  height: 140%;
+  border-radius: 10px;
+  background-color: rgba(158, 148, 126, 0.9);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  height: 1024px;
+
+  .sized-card {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    width: 680px;
+    height: 1024px;
+    margin: 0;
+
+    .card-image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 640px;
+      height: 1024px;
+      margin: 0;
+
+      .sized-card-image {
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        height: 924px;
+        z-index: 1;
+        display: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-height: 1024px;
+
+        object-fit: cover;
+        border-radius: 30px;
+      }
+    }
+
+    .card-base {
+      width: 680px;
+      height: 1024px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .mana-container {
+      width: 82px;
+      height: 84px;
+      position: absolute;
+      top: 48px;
+      left: 48px;
+      z-index: 2;
+
+      .mana {
+        font-family: "BeaufortforLOLBold";
+        margin: 0;
+        text-align: center;
+        font-size: 78px;
+      }
+    }
+
+    .attack-container {
+      width: 100px;
+      height: 84px;
+      position: absolute;
+      bottom: 80px;
+      left: 40px;
+      z-index: 2;
+
+      .attack {
+        font-family: "BeaufortforLOLBold";
+        font-size: 35px;
+        margin: 0;
+        text-align: center;
+        font-size: 70px;
+      }
+    }
+
+    .health-container {
+      width: 100px;
+      height: 84px;
+      position: absolute;
+      bottom: 80px;
+      right: 40px;
+      z-index: 2;
+
+      .health {
+        font-family: "BeaufortforLOLBold";
+        font-size: 70px;
+        margin: 0;
+        text-align: center;
+      }
+    }
+
+    .unit-info-container {
+      position: absolute;
+      bottom: 180px;
+      left: 0;
+      width: 100%;
+      height: 82%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+
+      .title,
+      .description,
+      .levelup {
+        width: 80%;
+        overflow: hidden;
+        text-align: center;
+        margin: 0;
+      }
+
+      .unit-typing-container {
+        position: absolute;
+        top: 4px;
+        left: 160px;
+
+        .typing-bar {
+          width: 360px;
+        }
+
+        .subtype {
+          color: #ada89d;
+          font-family: "UniversLTStd-UltraCn";
+          letter-spacing: 6px;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: -66px;
+          margin-left: 10px;
+          font-size: 31px;
+        }
+      }
+
+      .title {
+        font-size: 60px;
+        margin-bottom: -6px;
+        text-transform: uppercase;
+      }
+
+      .unit-keyword-icon-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+      }
+
+      .unit-keyword-icon {
+        height: 76px;
+        margin: 4px 14px 0 14px;
+      }
+
+      .sized-description-element-ref {
+        margin-top: 20px;
+        margin-bottom: 6px;
+        font-size: 36px;
+        width: 80%;
+      }
+
+      .levelup-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .levelup {
+        color: rgb(192, 132, 95);
+        font-size: 38px;
+        font-weight: bold;
+        margin-top: 24px;
+      }
+
+      ::ng-deep .action {
+        color: #d2926c;
+      }
+
+      ::ng-deep .name {
+        color: #4574ac;
+      }
+
+      ::ng-deep .keyword {
+        color: #e7c75a;
+      }
+
+      ::ng-deep .inline-icon {
+        width: 40px;
+        margin-bottom: -8px;
+      }
+    }
+
+    .spell-info-container {
+      position: absolute;
+      bottom: 180px;
+      left: 0;
+      width: 100%;
+      height: 32%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 2;
+
+      .title,
+      .description,
+      .levelup {
+        width: 80%;
+        overflow: hidden;
+        text-align: center;
+        margin: 0;
+      }
+
+      .title {
+        text-transform: uppercase;
+      }
+
+      .spell-keyword-icon-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+      }
+
+      .spell-keyword-icon {
+        height: 76px;
+        margin: 4px 14px 0 14px;
+      }
+
+      .description {
+        margin-top: 20px;
+        color: #f1f1f1;
+      }
+
+      .levelup-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .levelup {
+        color: #c28562;
+        margin-top: 20px;
+      }
+    }
+
+    .title {
+      font-family: "BeaufortforLOLBold";
+      font-weight: bold;
+      font-size: 40px;
+    }
+
+    .region {
+      position: absolute;
+      bottom: 78px;
+      margin-left: 2px;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .region-icon {
+        width: 88px;
+        opacity: 0.6;
+        z-index: 2;
+      }
     }
   }
 }

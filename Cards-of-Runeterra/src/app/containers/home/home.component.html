@@ -288,5 +288,81 @@
 
       <button mat-stroked-button (click)="download()">Download</button>
     </div>
+
+    <div class="sized-card-container">
+        <div class="reset-container">
+          <button mat-stroked-button (click)="resetCard()">Reset</button>
+        </div>
+
+        <div class="sized-card" id="sized-card">
+          <div class="card-image-container">
+            <img class="sized-card-image" />
+          </div>
+
+          <img class="card-base" [src]="'assets/cards/' + type +
+          (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
+          rarity +
+          '.png'">
+          <div class="mana-container">
+            <p class="mana">{{ mana }}</p>
+          </div>
+
+          <div class="attack-container" *ngIf="type !== CardType.Spell">
+            <p class="attack">{{ attack }}</p>
+          </div>
+
+          <div class="health-container" *ngIf="type !== CardType.Spell">
+            <p class="health">{{ health }}</p>
+          </div>
+
+          <div class="unit-info-container" *ngIf="type !== CardType.Spell; else SpellInfo">
+            <div class="unit-typing-container" *ngIf="subtype">
+              <img class="typing-bar" src="assets/cards/typing.png">
+              <p class="subtype">{{ subtype }}</p>
+            </div>
+
+            <p class="title">{{ cardTitle }}</p>
+            <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
+              *ngIf="uniqueUnitKeyword(); else MultipleUnitKeyword">
+
+            <ng-template #MultipleUnitKeyword>
+              <div class="unit-keyword-icon-container">
+                <div *ngFor="let keyword of unitKeywords | keyvalue">
+                  <img class="unit-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                    *ngIf="keyword.value">
+                </div>
+              </div>
+            </ng-template>
+
+            <div class="sized-description-element-ref" id="sized-description-element-ref"></div>
+
+            <img class="levelup-bar" src="assets/cards/champion/levelupbar.png"
+              *ngIf="type === CardType.Champion && rarity === Rarity.Champion">
+            <p class="levelup" *ngIf="rarity === Rarity.Champion">{{ levelup }}</p>
+          </div>
+
+          <ng-template #SpellInfo>
+            <div class="spell-info-container">
+              <p class="title">{{ cardTitle }}</p>
+              <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
+                *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
+              <p class="description">{{ description }}</p>
+            </div>
+          </ng-template>
+
+          <ng-template #MultipleSpellKeyword>
+            <div class="spell-keyword-icon-container">
+              <div *ngFor="let keyword of spellKeywords | keyvalue">
+                <img class="spell-keyword-icon" [src]="'assets/keywords/icons/' + keyword.key + '.png'"
+                  *ngIf="keyword.value">
+              </div>
+            </div>
+          </ng-template>
+
+          <div class="region" *ngIf="region">
+            <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
+          </div>
+        </div>
+      </div>
   </div>
 </div>
