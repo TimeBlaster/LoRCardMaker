@@ -229,7 +229,7 @@ export class HomeComponent implements OnInit {
 
   upload() {
     var reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = (e: any) => {
       var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
       elementRef.style.display = 'block';
       elementRef.src = e.target.result;
@@ -240,8 +240,9 @@ export class HomeComponent implements OnInit {
   }
 
   download() {
-    const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png'
-    domtoimage.toBlob(document.getElementById('card'))
+    const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
+    let card = document.getElementById('card');
+    domtoimage.toBlob(card)
       .then(function (blob: Blob) {
         saveAs(blob, title);
       });
