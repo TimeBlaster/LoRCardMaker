@@ -215,7 +215,7 @@
       </div>
 
       <div class="card" id="card">
-        <div class="card-image-container">
+        <div class="unit-card-image-container">
           <img class="card-image" />
         </div>
 
@@ -295,7 +295,7 @@
         </div>
 
         <div class="sized-card" id="sized-card">
-          <div class="card-image-container">
+          <div class="unit-card-image-container" *ngIf="type !== CardType.Spell">
             <img class="sized-card-image" *ngIf="hasImage" />
           </div>
 
