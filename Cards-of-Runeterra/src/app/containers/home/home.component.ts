@@ -24,10 +24,10 @@ export class HomeComponent implements OnInit {
   description = '';
   formattedDescription: string;
   levelup: string;
-  
+
   CardType = CardType;
   type: CardType = CardType.Follower;
-  
+
   Rarity = Rarity;
   rarity: Rarity = Rarity.None;
 
@@ -143,24 +143,24 @@ export class HomeComponent implements OnInit {
       }
     }
   }
-  
-  resetCard(){
-	this.mana = null;
-	this.attack = null;
-	this.health = null;
-	this.subtype = null;
-	this.cardTitle = null;
-	this.description = null;
-	this.levelup = null;
-	this.region = null;
-	this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
-	this.spellKeyword = SpellKeywords.Burst;
-	this.resetUnitKeywords();
-	this.resetSpellKeywords();
-  }	
 
-  resetUnitKeywords(){
-	this.unitKeywords.set(UnitKeywords.Ephemeral, false);
+  resetCard() {
+    this.mana = null;
+    this.attack = null;
+    this.health = null;
+    this.subtype = null;
+    this.cardTitle = null;
+    this.description = null;
+    this.levelup = null;
+    this.region = null;
+    this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
+    this.spellKeyword = SpellKeywords.Burst;
+    this.resetUnitKeywords();
+    this.resetSpellKeywords();
+  }
+
+  resetUnitKeywords() {
+    this.unitKeywords.set(UnitKeywords.Ephemeral, false);
     this.unitKeywords.set(UnitKeywords.Challenger, false);
     this.unitKeywords.set(UnitKeywords.Fearsome, false);
     this.unitKeywords.set(UnitKeywords.QuickAttack, false);
@@ -175,8 +175,8 @@ export class HomeComponent implements OnInit {
     this.unitKeywords.set(UnitKeywords.Fleeting, false);
   }
 
-  resetSpellKeywords(){
-	this.spellKeywords.set(SpellKeywords.Burst, true);
+  resetSpellKeywords() {
+    this.spellKeywords.set(SpellKeywords.Burst, true);
     this.spellKeywords.set(SpellKeywords.Fast, false);
     this.spellKeywords.set(SpellKeywords.Slow, false);
     this.spellKeywords.set(SpellKeywords.Fleeting, false);
@@ -213,6 +213,8 @@ export class HomeComponent implements OnInit {
     description = description.replace(/<\/action>/g, '</span>');
     description = description.replace(/<name>/g, '<span class="name">');
     description = description.replace(/<\/name>/g, '</span>');
+    description = description.replace(/<keyword>/g, '<span class="keyword">');
+    description = description.replace(/<\/keyword>/g, '</span>');
 
     Object.keys(Keywords).map(key => {
       var regex = new RegExp('<' + Keywords[key] + '>', 'g')
@@ -223,6 +225,18 @@ export class HomeComponent implements OnInit {
     if (elementRef) {
       elementRef.insertAdjacentHTML('afterbegin', description);
     }
+  }
+
+  upload() {
+    var reader = new FileReader();
+    reader.onload = (e) => {
+      var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
+      elementRef.style.display = 'block';
+      elementRef.src = e.target.result;
+    };
+
+    let input: any = document.getElementById("uploader");
+    reader.readAsDataURL(input.files[0]);
   }
 
   download() {

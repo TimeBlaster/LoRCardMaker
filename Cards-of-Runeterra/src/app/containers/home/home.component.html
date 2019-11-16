@@ -210,11 +210,15 @@
     </div>
 
     <div class="card-container">
-	  <div class="reset-container">
-		<button mat-stroked-button (click)="resetCard()">Reset</button>
-	  </div>
-	  
+      <div class="reset-container">
+        <button mat-stroked-button (click)="resetCard()">Reset</button>
+      </div>
+
       <div class="card" id="card">
+        <div class="card-image-container">
+          <img class="card-image" />
+        </div>
+
         <img class="card-base" [src]="'assets/cards/' + type +
         (type === CardType.Spell ? '/' + spellKeyword + '/' : '/') +
         rarity +
@@ -279,6 +283,8 @@
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
         </div>
       </div>
+
+      <input class="uploader" id="uploader" type='file' (change)="upload();" />
 
       <button mat-stroked-button (click)="download()">Download</button>
     </div>
