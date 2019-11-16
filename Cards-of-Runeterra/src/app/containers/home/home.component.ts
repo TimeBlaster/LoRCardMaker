@@ -16,6 +16,7 @@ import { Keywords } from 'src/app/models/keywords.model';
 })
 export class HomeComponent implements OnInit {
   imagePath: '';
+  reader: FileReader;
 
   mana: number;
   attack: number;
@@ -84,6 +85,11 @@ export class HomeComponent implements OnInit {
       this.rarity = Rarity.Champion;
     } else if (!nonChampionRarity.includes(this.rarity)) {
       this.rarity = Rarity.None;
+    }
+
+    let input: any = document.getElementById("uploader");
+    if (this.reader) {
+      this.reader.readAsDataURL(input.files[0]);
     }
   }
 
@@ -246,19 +252,26 @@ export class HomeComponent implements OnInit {
   }
 
   upload() {
-    var reader = new FileReader();
-    reader.onload = (e: any) => {
+    if (!this.reader) {
+      this.reader = new FileReader();
+    }
+
+    this.reader.onload = (e: any) => {
       var elementRef = this.elementRef.nativeElement.querySelector('.card-image');
-      elementRef.style.display = 'block';
-      elementRef.src = e.target.result;
+      if (elementRef) {
+        elementRef.style.display = 'block';
+        elementRef.src = e.target.result;
+      }
 
       var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
-      sizedElementRef.style.display = 'block';
-      sizedElementRef.src = e.target.result;
+      if (sizedElementRef) {
+        sizedElementRef.style.display = 'block';
+        sizedElementRef.src = e.target.result;
+      }
     };
 
     let input: any = document.getElementById("uploader");
-    reader.readAsDataURL(input.files[0]);
+    this.reader.readAsDataURL(input.files[0]);
 
     this.hasImage = true;
   }
@@ -270,7 +283,10 @@ export class HomeComponent implements OnInit {
     domtoimage.toBlob(card, {width:680, height:1024})
       .then(function (blob: Blob) {
         saveAs(blob, title);
-      }, (err) => {}
+      }, (err) => {
+        console.log('err', err);
+
+      }
       );
   }
 }

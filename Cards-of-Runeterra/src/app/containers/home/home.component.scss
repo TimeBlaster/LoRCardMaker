@@ -208,6 +208,29 @@
         }
       }
 
+      .spell-card-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 320px;
+        height: 20px;
+
+        .card-image {
+          position: absolute;
+          top: 25px;
+          left: 42px;
+          height: 250px;
+          z-index: 1;
+          display: none;
+          margin-left: auto;
+          margin-right: auto;
+          width: 250px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+
       .card-base {
         width: 340px;
         z-index: 2;
@@ -344,15 +367,15 @@
         }
 
         ::ng-deep .action {
-          color:rgb(250,214,90);
+          color: rgb(250, 214, 90);
         }
 
         ::ng-deep .name {
-          color:rgb(73,160,248);
+          color: rgb(73, 160, 248);
         }
 
         ::ng-deep .keyword {
-          color:  rgb(250,214,90);
+          color: rgb(250, 214, 90);
         }
 
         ::ng-deep .inline-icon {
@@ -460,14 +483,16 @@
   flex-direction: column;
   z-index: 2;
   position: absolute;
-  left: -9999px;
-  top: -9999px;
+  left: -9px;
+  top: 900px;
 
   .sized-card {
     position: relative;
     z-index: 2;
     overflow: hidden;
     margin: 0;
+    width: 680px;
+    height: 1024px;
 
     .unit-card-image-container {
       position: absolute;
@@ -475,6 +500,7 @@
       left: 0;
       z-index: 1;
       margin: 0;
+      width: 640px;
 
       .sized-card-image {
         position: absolute;
@@ -486,17 +512,36 @@
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        max-height: 1024px;
-        width: 640px;
-        height: 1024px;
         object-fit: cover;
         border-radius: 30px;
       }
     }
 
+    .spell-card-image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 640px;
+      height: 40px;
+
+      .sized-card-image {
+        position: absolute;
+        top: 50px;
+        left: 84px;
+        height: 500px;
+        z-index: 1;
+        display: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
     .card-base {
       width: 680px;
-      height: 1024px;
       z-index: 2;
       position: relative;
     }
@@ -633,15 +678,15 @@
       }
 
       ::ng-deep .action {
-        color: rgb(250,214,90);
+        color: rgb(250, 214, 90);
       }
 
       ::ng-deep .name {
-        color:rgb(73,160,248);
+        color: rgb(73, 160, 248);
       }
 
       ::ng-deep .keyword {
-        color:  rgb(250,214,90);
+        color: rgb(250, 214, 90);
       }
 
       ::ng-deep .inline-icon {
