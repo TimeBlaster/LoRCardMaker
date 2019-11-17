@@ -185,6 +185,8 @@
       overflow: hidden;
       width: 340px;
       height: 512px;
+      min-width: 340px;
+      min-height: 512px;
 
       .unit-card-image-container {
         position: absolute;
@@ -283,7 +285,7 @@
         width: 50px;
         height: 42px;
         position: absolute;
-        bottom: 16px;
+        bottom: 38px;
         left: 20px;
         z-index: 4;
 
@@ -299,7 +301,7 @@
         width: 50px;
         height: 42px;
         position: absolute;
-        bottom: 16px;
+        bottom: 38px;
         right: 20px;
         z-index: 4;
 
@@ -412,7 +414,7 @@
 
       .spell-info-container {
         position: absolute;
-        bottom: 36px;
+        bottom: 60px;
         left: 0;
         width: 100%;
         height: 164px;
@@ -483,7 +485,7 @@
 
       .unit-region {
         position: absolute;
-        bottom: 15px;
+        bottom: 37px;
         width: 100%;
         height: 50px;
         display: flex;
@@ -500,7 +502,7 @@
 
       .spell-region {
         position: absolute;
-        bottom: 27px;
+        bottom: 47px;
         margin-left: -1px;
         width: 100%;
         height: 50px;
