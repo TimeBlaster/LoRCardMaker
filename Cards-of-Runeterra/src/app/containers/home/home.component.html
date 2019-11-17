@@ -314,16 +314,16 @@
 
       <div class="sized-card" id="sized-card">
         <div class="unit-card-image-container" *ngIf="type !== CardType.Spell; else sizedSpellImage">
-          <img class="sized-card-image" />
+          <img class="sized-card-image" *ngIf="hasImage" />
         </div>
 
         <ng-template #sizedSpellImage>
           <div class="spell-card-image-container">
-            <img class="sized-card-image" />
+            <img class="sized-card-image" *ngIf="hasImage" />
           </div>
 
           <div class="spell-card-bottom-image-container">
-            <img class="sized-card-bottom-image" />
+            <img class="sized-card-bottom-image" *ngIf="hasImage" />
           </div>
         </ng-template>
 
