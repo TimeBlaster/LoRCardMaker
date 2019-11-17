@@ -124,26 +124,30 @@
           </label>
         </div>
 
-        <div class="tag-container">
-          <button (click)="addColorTag('name')">name</button>
-          <button (click)="addColorTag('action')">action</button>
-          <button (click)="addColorTag('keyword')">keyword</button>
-          <div *ngFor="let item of Keywords | keyvalue">
-            <img class="inline-icon" [src]='"assets/keywords/inline/" + item.value + ".png"'
-              (click)="addColorTag(item.value)">
-          </div>
-        </div>
-
         <div class="description">
           <p class=title>Description</p>
 
           <label class="field a-field a-field_a1">
-            <input class="field__input a-field__input" [ngModel]="description"
-              (ngModelChange)="onDescriptionChange($event)">
+            <textarea class="field__input a-field__input_long" [ngModel]="description"
+              (ngModelChange)="onDescriptionChange($event)" rows="5"></textarea>
             <span class="a-field__label-wrap">
               <span class="a-field__label"></span>
             </span>
           </label>
+        </div>
+
+        <div class="tag-container">
+          <div class="font-container" mat-stroked-button (click)="addColorTag('name')">
+            <div class="name-font-color"></div>
+          </div>
+          <div class="font-container" mat-stroked-button (click)="addColorTag('keyword')">
+            <div class="keyword-font-color"></div>
+          </div>
+
+          <div *ngFor="let item of Keywords | keyvalue">
+            <img class="inline-icon" [src]='"assets/keywords/inline/" + item.value + ".png"'
+              (click)="addColorTag(item.value)">
+          </div>
         </div>
 
         <div class="subtype" *ngIf="type !== CardType.Spell">
@@ -207,13 +211,13 @@
             [class.selected]="rarity === Rarity.Epic" *ngIf="type !== CardType.Champion">
         </div>
       </div>
-    </div>
 
-    <div class="card-container">
       <div class="reset-container">
         <button mat-stroked-button (click)="resetCard()">Reset</button>
       </div>
+    </div>
 
+    <div class="card-container">
       <div class="card" id="card">
         <div class="unit-card-image-container" *ngIf="type !== CardType.Spell; else spellImage">
           <img class="card-image" />
@@ -302,20 +306,21 @@
 
       <input class="uploader" id="uploader" type='file' (change)="upload();" />
 
-      <button mat-stroked-button (click)="download()">Download</button>
-      <button mat-stroked-button (click)="zoom('out')">-</button>
-      <button mat-stroked-button (click)="zoom('in')">+</button>
-      <button mat-stroked-button (click)="move('up')">up</button>
-      <button mat-stroked-button (click)="move('down')">down</button>
-      <button mat-stroked-button (click)="move('left')">left</button>
-      <button mat-stroked-button (click)="move('right')">right</button>
+      <div class="arrows-container" *ngIf="hasImage">
+        <i class="material-icons" (click)="move('left')">chevron_left</i>
+        <div class="up-down">
+          <i class="material-icons" (click)="move('up')">expand_less</i>
+          <i class="material-icons" (click)="move('down')">expand_more</i>
+        </div>
+        <i class="material-icons" (click)="move('right')">chevron_right</i>
+
+
+      </div>
+
+      <button class="download" mat-stroked-button (click)="download()">Download</button>
     </div>
 
     <div class="sized-card-container">
-      <div class="reset-container">
-        <button mat-stroked-button (click)="resetCard()">Reset</button>
-      </div>
-
       <div class="sized-card" id="sized-card">
         <div class="unit-card-image-container" *ngIf="type !== CardType.Spell; else sizedSpellImage">
           <img class="sized-card-image" *ngIf="hasImage" />

@@ -20,9 +20,13 @@
   .filters-container {
     color: black;
     width: 800px;
-    height: 85%;
+    height: 95%;
     border-radius: 10px;
-    background-color: rgba(169, 155, 126, 0.7);
+    background-color: rgba(154, 136, 100, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
 
     .title {
       margin-left: 10px;
@@ -118,14 +122,44 @@
         }
       }
 
+      .description {
+        height: 60px;
+        margin-top:10px;
+      }
+
       .tag-container {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        margin-top:10px;
 
         img {
           width: 30px;
           cursor: pointer;
+        }
+
+        .font-container {
+          border: 1px solid black;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .name-font-color {
+            width: 15px;
+            height: 15px;
+            background-color: rgb(73, 160, 248);
+          }
+
+          .keyword-font-color {
+            width: 15px;
+            height: 15px;
+            background-color: rgb(250, 214, 90);
+          }
         }
       }
     }
@@ -165,14 +199,23 @@
         opacity: 1;
       }
     }
+
+    .reset-container {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      border: 1px solid white;
+      color: white;
+      border-radius: 5px;
+    }
   }
 
   .card-container {
     color: white;
     min-width: 400px;
-    height: 70%;
+    height: 95%;
     border-radius: 10px;
-    background-color: rgba(158, 148, 126, 0.9);
+    background-color: rgba(154, 136, 100, 0.7);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -389,14 +432,10 @@
         }
 
         .levelup {
-          color: rgb(192, 132, 95);
+          color: rgb(214, 148, 107);
           font-size: 16px;
           font-weight: bold;
           margin-top: 12px;
-        }
-
-        ::ng-deep .action {
-          color: rgb(250, 214, 90);
         }
 
         ::ng-deep .name {
@@ -460,10 +499,6 @@
           text-align: center;
         }
 
-        ::ng-deep .action {
-          color: rgb(250, 214, 90);
-        }
-
         ::ng-deep .name {
           color: rgb(73, 160, 248);
         }
@@ -519,9 +554,29 @@
       }
     }
 
-    button {
-      color: black;
-      border: 1px solid black;
+    .arrows-container {
+      position: relative;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .up-down {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+      }
+
+      i {
+        cursor: pointer;
+      }
+    }
+
+    .download {
+      border: 1px solid white;
+      color: white;
     }
   }
 }
@@ -539,8 +594,8 @@
   flex-direction: column;
   z-index: 4;
   position: absolute;
-  left: -9px;
-  top: 900px;
+  left: -9999px;
+  top: -9999px;
 
   .sized-card {
     position: relative;
@@ -752,14 +807,10 @@
       }
 
       .levelup {
-        color: rgb(192, 132, 95);
+        color: rgb(214, 148, 107);
         font-size: 38px;
         font-weight: bold;
         margin-top: 24px;
-      }
-
-      ::ng-deep .action {
-        color: rgb(250, 214, 90);
       }
 
       ::ng-deep .name {
@@ -821,10 +872,6 @@
         font-size: 36px;
         width: 80%;
         text-align: center;
-      }
-
-      ::ng-deep .action {
-        color: rgb(250, 214, 90);
       }
 
       ::ng-deep .name {
@@ -920,6 +967,12 @@
   width: 50px;
 }
 
+.a-field__input_long {
+  display: block;
+  box-sizing: border-box;
+  width: 600px;
+}
+
 /* hides the increase/decrease arrows on webkit-browsers */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -931,7 +984,8 @@ input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
 
-.a-field__input:focus {
+.a-field__input:focus,
+.a-field__input_long:focus {
   outline: none;
 }
 
@@ -953,18 +1007,21 @@ input[type="number"] {
   padding-top: 1em;
 }
 
-.a-field__input {
+.a-field__input,
+.a-field__input_long {
   height: var(--uiFieldHeight);
   padding: 0 var(--uiFieldPaddingRight) 0 var(--uiFieldPaddingLeft);
   border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColor);
 }
 
-.a-field__input::-webkit-input-placeholder {
+.a-field__input::-webkit-input-placeholder,
+.a-field__input_long::-webkit-input-placeholder {
   opacity: 0;
   transition: opacity 0.5s ease-out;
 }
 
-.a-field__input::-moz-placeholder {
+.a-field__input::-moz-placeholder,
+.a-field__input_long::-moz-placeholder {
   opacity: 0;
   transition: opacity 0.5s ease-out;
 }
@@ -974,12 +1031,19 @@ input[type="number"] {
   bottom: var(--uiFieldPaddingBottom);
 }
 
-.a-field__input:focus::-webkit-input-placeholder {
+.a-field__input_long:not(:placeholder-shown) ~ .a-field__label-wrap .a-field__label {
+  opacity: 0;
+  bottom: var(--uiFieldPaddingBottom);
+}
+
+.a-field__input:focus::-webkit-input-placeholder,
+.a-field__input_long:focus::-webkit-input-placeholder {
   opacity: 1;
   transition-delay: 0.5s;
 }
 
-.a-field__input:focus::-moz-placeholder {
+.a-field__input:focus::-moz-placeholder,
+.a-field__input_long:focus::-moz-placeholder {
   opacity: 1;
   transition-delay: 0.5s;
 }
@@ -1015,14 +1079,21 @@ input[type="number"] {
   bottom: var(--uiFieldHeight);
 }
 
+.a-field__input_long:focus ~ .a-field__label-wrap .a-field__label {
+  opacity: 1;
+  bottom: var(--uiFieldHeight);
+}
+
 /* a-field_a1 */
 
-.a-field_a1 .a-field__input {
+.a-field_a1 .a-field__input,
+.a-field__input_long {
   transition: border-color 0.2s ease-out;
   will-change: border-color;
 }
 
-.a-field_a1 .a-field__input:focus {
+.a-field_a1 .a-field__input:focus,
+.a-field__input_long:focus {
   border-color: var(--fieldBorderColorActive);
 }
 

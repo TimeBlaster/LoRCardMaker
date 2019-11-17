@@ -202,9 +202,7 @@ export class HomeComponent implements OnInit {
   }
 
   addColorTag(type: string) {
-    if (type === 'action') {
-      this.description += '<action></action>'
-    } else if (type === 'name') {
+    if (type === 'name') {
       this.description += '<name></name>'
     } else if (type === 'keyword') {
       this.description += '<keyword></keyword>'
@@ -243,8 +241,6 @@ export class HomeComponent implements OnInit {
     this.description = description;
 
     description = '<div class="first-child">' + description + '</div>';
-    description = description.replace(/<action>/g, '<span class="action">');
-    description = description.replace(/<\/action>/g, '</span>');
     description = description.replace(/<name>/g, '<span class="name">');
     description = description.replace(/<\/name>/g, '</span>');
     description = description.replace(/<keyword>/g, '<span class="keyword">');
