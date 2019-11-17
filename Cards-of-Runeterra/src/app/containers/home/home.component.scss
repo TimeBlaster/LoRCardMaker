@@ -214,24 +214,25 @@
 
       .spell-card-image-container {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 17px;
+        left: 42px;
         z-index: 2;
-        width: 320px;
-        height: 20px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
 
         .card-image {
           position: absolute;
-          top: 25px;
-          left: 42px;
+          top: 0;
+          left: 0;
           height: 250px;
+          width: 250px;
           z-index: 2;
           display: none;
           margin-left: auto;
           margin-right: auto;
-          width: 250px;
           object-fit: cover;
-          border-radius: 50%;
         }
       }
 
@@ -337,8 +338,8 @@
 
         .unit-typing-container {
           position: absolute;
-          top: 2px;
-          left: 80px;
+          top: 5px;
+          left: 79px;
 
           .typing-bar {
             width: 180px;
@@ -570,7 +571,6 @@
         margin-right: auto;
         width: 100%;
         object-fit: cover;
-        border-radius: 30px;
       }
     }
 
@@ -700,8 +700,8 @@
 
       .unit-typing-container {
         position: absolute;
-        top: 4px;
-        left: 160px;
+        top: 10px;
+        left: 158px;
 
         .typing-bar {
           width: 360px;

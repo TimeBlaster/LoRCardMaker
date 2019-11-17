@@ -276,19 +276,69 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  zoom() {
+  zoom(option: string) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+    var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+
     if (cardImageElementRef) {
-      let newHeight = (cardImageElementRef.height + 20) + 'px';
+      let newHeight: string;
+      let newWidth: string;
+      let newSizedHeight: string;
+      let newSizedWidth: string;
+
+      if (option === 'in') {
+        newHeight = (cardImageElementRef.height + 20) + 'px';
+        newSizedHeight = (cardImageElementRef.height + 40) + 'px';
+        newWidth = (cardImageElementRef.width + 20) + 'px';
+        newSizedWidth = (cardImageElementRef.width + 40) + 'px';
+      } else {
+        newHeight = (cardImageElementRef.height - 20) + 'px';
+        newSizedHeight = (cardImageElementRef.height - 40) + 'px';
+        newWidth = (cardImageElementRef.width - 20) + 'px';
+        newSizedWidth = (cardImageElementRef.width - 40) + 'px';
+      }
+
       cardImageElementRef.style.height = newHeight;
+      sizedCardImageElementRef.style.height = newSizedHeight;
+      cardImageElementRef.style.width = newWidth;
+      sizedCardImageElementRef.style.width = newSizedWidth;
     }
   }
 
-  unzoom() {
+  move(direction: string) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
-    if (cardImageElementRef) {
-      let newHeight = (cardImageElementRef.height - 20) + 'px';
-      cardImageElementRef.style.height = newHeight;
+    var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+
+    let top = parseInt(cardImageElementRef.style.top) ? parseInt(cardImageElementRef.style.top).toString() : '15';
+    let left = parseInt(cardImageElementRef.style.left) ? parseInt(cardImageElementRef.style.left).toString() : '10';
+
+    let sizedTop = parseInt(sizedCardImageElementRef.style.top) ? parseInt(sizedCardImageElementRef.style.top).toString() : '30';
+    let sizedLeft = parseInt(sizedCardImageElementRef.style.left) ? parseInt(sizedCardImageElementRef.style.left).toString() : '20';
+
+    if (direction === 'up') {
+      top = (parseInt(top) - 20) + 'px';
+      sizedTop = (parseInt(sizedTop) - 40) + 'px';
+    }
+    if (direction === 'down') {
+      top = (parseInt(top) + 20) + 'px';
+      sizedTop = (parseInt(sizedTop) + 40) + 'px';
+    }
+    if (direction === 'right') {
+      left = (parseInt(left) + 20) + 'px';
+      sizedLeft = (parseInt(sizedLeft) + 40) + 'px';
+    }
+    if (direction === 'left') {
+      left = (parseInt(left) - 20) + 'px';
+      sizedLeft = (parseInt(sizedLeft) - 40) + 'px';
+    }
+
+    if (top) {
+      cardImageElementRef.style.top = top;
+      sizedCardImageElementRef.style.top = sizedTop;
+    }
+    if (left) {
+      cardImageElementRef.style.left = left;
+      sizedCardImageElementRef.style.left = sizedLeft;
     }
   }
 

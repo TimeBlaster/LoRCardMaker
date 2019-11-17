@@ -303,8 +303,12 @@
       <input class="uploader" id="uploader" type='file' (change)="upload();" />
 
       <button mat-stroked-button (click)="download()">Download</button>
-      <button mat-stroked-button (click)="unzoom()">-</button>
-      <button mat-stroked-button (click)="zoom()">+</button>
+      <button mat-stroked-button (click)="zoom('out')">-</button>
+      <button mat-stroked-button (click)="zoom('in')">+</button>
+      <button mat-stroked-button (click)="move('up')">up</button>
+      <button mat-stroked-button (click)="move('down')">down</button>
+      <button mat-stroked-button (click)="move('left')">left</button>
+      <button mat-stroked-button (click)="move('right')">right</button>
     </div>
 
     <div class="sized-card-container">
