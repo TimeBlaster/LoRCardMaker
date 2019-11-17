@@ -276,6 +276,22 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  zoom() {
+    var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+    if (cardImageElementRef) {
+      let newHeight = (cardImageElementRef.height + 20) + 'px';
+      cardImageElementRef.style.height = newHeight;
+    }
+  }
+
+  unzoom() {
+    var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+    if (cardImageElementRef) {
+      let newHeight = (cardImageElementRef.height - 20) + 'px';
+      cardImageElementRef.style.height = newHeight;
+    }
+  }
+
   upload() {
     if (!this.reader) {
       this.reader = new FileReader();

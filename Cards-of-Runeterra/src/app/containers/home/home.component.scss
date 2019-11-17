@@ -188,10 +188,13 @@
 
       .unit-card-image-container {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 15px;
+        left: 12px;
         z-index: 2;
-        width: 320px;
+        width: 318px;
+        height: 466px;
+        border-radius: 30px;
+        overflow: hidden;
 
         .card-image {
           position: absolute;
@@ -204,7 +207,6 @@
           margin-right: auto;
           width: 100%;
           object-fit: cover;
-          border-radius: 30px;
         }
       }
 
@@ -546,11 +548,13 @@
 
     .unit-card-image-container {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 30px;
+      left: 24px;
       z-index: 2;
-      margin: 0;
-      width: 640px;
+      width: 636px;
+      height: 932px;
+      border-radius: 60px;
+      overflow: hidden;
 
       .sized-card-image {
         position: absolute;
