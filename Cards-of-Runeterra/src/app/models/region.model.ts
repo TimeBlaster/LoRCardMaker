@@ -4,5 +4,12 @@ export enum Region {
   Ionia = 'ionia',
   Noxus = 'noxus',
   PiltoverZaun = 'piltoverzaun',
-  ShadowIsles = 'shadowisles'
+  ShadowIsles = 'shadowisles',
+  Bandlecity = 'bandlecity',
+  Bilgewater ='bilgewater',
+  Ixtal = 'ixtal',
+  Runeterra = 'runeterra',
+  Shurima = 'shurima',
+  Targon = 'targon',
+  Void = 'void'
 }
