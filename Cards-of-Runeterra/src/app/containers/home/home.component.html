@@ -1,5 +1,10 @@
 <div class="background">
 
+  <div class="home-title">
+    <div class="game">Legends of Runeterra</div>
+    <div class="site">Card Maker</div>
+  </div>
+
   <div class="home">
     <div class="filters-container">
       <div class="types">
@@ -306,17 +311,18 @@
 
       <input class="uploader" id="uploader" type='file' (change)="upload();" />
 
-      <div class="arrows-container" *ngIf="hasImage">
-        <i class="material-icons" (click)="move('left')">chevron_left</i>
-        <div class="up-down">
-          <i class="material-icons" (click)="move('up')">expand_less</i>
-          <i class="material-icons" (click)="move('down')">expand_more</i>
+      <div class="move-container" *ngIf="hasImage">
+        <i class="material-icons zoom" (click)="zoom('in')">zoom_in</i>
+        <div class="arrows-container">
+          <i class="material-icons" (click)="move('left')">chevron_left</i>
+          <div class="up-down">
+            <i class="material-icons" (click)="move('up')">expand_less</i>
+            <i class="material-icons" (click)="move('down')">expand_more</i>
+          </div>
+          <i class="material-icons" (click)="move('right')">chevron_right</i>
         </div>
-        <i class="material-icons" (click)="move('right')">chevron_right</i>
-
-
+        <i class="material-icons zoom" (click)="zoom('out')">zoom_out</i>
       </div>
-
       <button class="download" mat-stroked-button (click)="download()">Download</button>
     </div>
 
