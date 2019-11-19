@@ -1015,6 +1015,8 @@
   display: block;
   box-sizing: border-box;
   width: 675px;
+  resize: none;
+  overflow: hidden;
 }
 
 /* hides the increase/decrease arrows on webkit-browsers */
