@@ -15,7 +15,6 @@ import { Keywords } from 'src/app/models/keywords.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  imagePath: '';
   reader: FileReader;
 
   mana: number;
@@ -163,18 +162,14 @@ export class HomeComponent implements OnInit {
     this.health = null;
     this.subtype = null;
     this.cardTitle = null;
-    this.description = '';
     this.levelup = null;
     this.region = null;
     this.rarity = this.type === CardType.Champion ? Rarity.Champion : Rarity.None;
     this.spellKeyword = SpellKeywords.Burst;
     this.resetUnitKeywords();
     this.resetSpellKeywords();
-
-    let input: any = document.getElementById("uploader");
-    input.value = "";
-
-    this.hasImage = false;
+	this.resetImages();
+	this.resetDescription();
   }
 
   resetUnitKeywords() {
@@ -201,22 +196,39 @@ export class HomeComponent implements OnInit {
     this.spellKeywords.set(SpellKeywords.Overwhelm, false);
   }
 
-  addColorTag(type: string) {
-    if (type === 'name') {
-      this.description += '<name></name>'
-    } else if (type === 'keyword') {
-      this.description += '<keyword></keyword>'
-    } else {
-      Object.keys(Keywords).map(key => {
-        if (type === Keywords[key]) {
-          this.description += '<' + type + '>';
-        }
-      });
-    }
-    this.onDescriptionChange(this.description);
-  }
+  resetImages(){
+	let input: any = document.getElementById("uploader");
+    input.value = "";
 
-  onDescriptionChange(description) {
+    var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+    var bottomCardImageElementRef = this.elementRef.nativeElement.querySelector('.card-bottom-image');
+    if (cardImageElementRef) {
+      cardImageElementRef.style.display = 'none';
+      cardImageElementRef.src = "";
+    }
+
+    if (bottomCardImageElementRef) {
+      bottomCardImageElementRef.style.display = 'none';
+      bottomCardImageElementRef.src = "";
+    }
+
+    var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+    var bottomSizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-bottom-image');
+    if (sizedElementRef) {
+      sizedElementRef.style.display = 'none';
+      sizedElementRef.src = "";
+    }
+
+    if (bottomSizedElementRef) {
+      bottomSizedElementRef.style.display = 'none';
+      bottomSizedElementRef.src = "";
+    }
+	
+	this.hasImage = false;
+  }
+  
+  resetDescription(){
+	this.description = '';
 
     var list = document.getElementById("description-element-ref");
     if (list) {
@@ -237,7 +249,25 @@ export class HomeComponent implements OnInit {
     if (sizedSpellList) {
       sizedSpellList.innerHTML = "";
     }
+  }
 
+  addColorTag(type: string) {
+    if (type === 'name') {
+      this.description += '<name></name>'
+    } else if (type === 'keyword') {
+      this.description += '<keyword></keyword>'
+    } else {
+      Object.keys(Keywords).map(key => {
+        if (type === Keywords[key]) {
+          this.description += '<' + type + '>';
+        }
+      });
+    }
+    this.onDescriptionChange(this.description);
+  }
+
+  onDescriptionChange(description) {
+    this.resetDescription();
     this.description = description;
 
     description = '<div class="first-child">' + description + '</div>';
