@@ -233,7 +233,7 @@
             <img class="card-image" />
           </div>
 
-          <div class="spell-card-bottom-image-container">
+          <div class="spell-card-bottom-image-container" *ngIf="hasImage">
             <img class="card-bottom-image" />
           </div>
         </ng-template>
@@ -337,8 +337,8 @@
             <img class="sized-card-image" *ngIf="hasImage" />
           </div>
 
-          <div class="spell-card-bottom-image-container">
-            <img class="sized-card-bottom-image" *ngIf="hasImage" />
+          <div class="spell-card-bottom-image-container" *ngIf="hasImage">
+            <img class="sized-card-bottom-image"/>
           </div>
         </ng-template>
 
