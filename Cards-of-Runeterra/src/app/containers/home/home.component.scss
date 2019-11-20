@@ -654,8 +654,8 @@
   flex-direction: column;
   z-index: 4;
   position: absolute;
-  left: -9px;
-  top:900px;
+  left: -9999px;
+  top: -9999px;
 
   .sized-card {
     position: relative;
