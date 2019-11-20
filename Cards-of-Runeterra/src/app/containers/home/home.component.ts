@@ -411,6 +411,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
       var bottomCardImageElementRef = this.elementRef.nativeElement.querySelector('.card-bottom-image');
       if (cardImageElementRef) {
+        cardImageElementRef.style.height = '';
+        cardImageElementRef.style.width = '';
+        cardImageElementRef.style.top = '';
+        cardImageElementRef.style.left = '';
         cardImageElementRef.style.display = 'block';
         cardImageElementRef.src = e.target.result;
       }
@@ -423,6 +427,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
       var bottomSizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-bottom-image');
       if (sizedElementRef) {
+        cardImageElementRef.style.height = '';
+        cardImageElementRef.style.width = '';
+        cardImageElementRef.style.top = '';
+        cardImageElementRef.style.left = '';
         sizedElementRef.style.display = 'block';
         sizedElementRef.src = e.target.result;
       }
