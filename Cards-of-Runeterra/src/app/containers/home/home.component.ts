@@ -447,8 +447,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.hasImage = true;
   }
 
+  getTitle(): string {
+    if(this.cardTitle)
+      return (this.cardTitle.match(/^ *$/) !== null ? 'customCard' : this.cardTitle) + '.png'
+    else
+      return 'customCard' + '.png';
+  }
+
   download() {
-    const title = this.cardTitle ? this.cardTitle : 'customCard' + '.png';
+    var title = this.getTitle();
     const card = document.getElementById('sized-card');
 
     domtoimage.toBlob(card, { width: 680, height: 1024 })
