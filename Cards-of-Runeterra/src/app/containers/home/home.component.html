@@ -322,8 +322,11 @@
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
         </div>
       </div>
-
-      <input class="uploader" id="uploader" type='file' (change)="upload();" />
+		
+	  <div class="upload-container">
+        <input class="uploader" id="uploader" type='file' (change)="upload();" />
+	    <button class="download" (click)="resetImages()" *ngIf="hasImage">X</button>
+      </div>
 
       <div class="move-container" *ngIf="hasImage">
         <i class="material-icons zoom" (click)="zoom('in')">zoom_in</i>
