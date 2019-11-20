@@ -330,14 +330,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (option === 'in') {
         newHeight = (cardImageElementRef.height + 20) + 'px';
-        newSizedHeight = (cardImageElementRef.height + 40) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height + 40) + 'px';
         newWidth = (cardImageElementRef.width + 20) + 'px';
-        newSizedWidth = (cardImageElementRef.width + 40) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width + 40) + 'px';
       } else {
         newHeight = (cardImageElementRef.height - 20) + 'px';
-        newSizedHeight = (cardImageElementRef.height - 40) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height - 40) + 'px';
         newWidth = (cardImageElementRef.width - 20) + 'px';
-        newSizedWidth = (cardImageElementRef.width - 40) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width - 40) + 'px';
       }
 
       cardImageElementRef.style.height = newHeight;
