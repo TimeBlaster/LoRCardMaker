@@ -404,12 +404,9 @@
 
         .fitty-parent {
           width: 272px;
-          overflow: visible;
 
           .title {
             width: 272px;
-            overflow: visible;
-            font-size: fit-width;
           }
         }
 
@@ -506,6 +503,15 @@
         justify-content: flex-start;
         align-items: center;
         z-index: 4;
+
+
+        .fitty-parent {
+          width: 272px;
+
+          .title {
+            width: 272px;
+          }
+        }
 
         .title,
         .description,
@@ -648,8 +654,8 @@
   flex-direction: column;
   z-index: 4;
   position: absolute;
-  left: -9999px;
-  top: -9999px;
+  left: -9px;
+  top:900px;
 
   .sized-card {
     position: relative;
@@ -799,6 +805,14 @@
       text-align: center;
       z-index: 4;
 
+      .fitty-parent {
+        width: 544px;
+
+        .title {
+          width: 544px;
+        }
+      }
+
       .title,
       .description,
       .levelup {
@@ -893,6 +907,14 @@
       justify-content: flex-start;
       align-items: center;
       z-index: 4;
+
+      .fitty-parent {
+        width: 544px;
+
+        .title {
+          width: 544px;
+        }
+      }
 
       .title,
       .description,

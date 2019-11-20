@@ -298,7 +298,9 @@
 
         <ng-template #SpellInfo>
           <div class="spell-info-container">
-            <p class="title">{{ cardTitle }}</p>
+            <div class="fitty-parent">
+              <p class="title fitty-card-title fit">{{ cardTitle }}</p>
+            </div>
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
               *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
 
@@ -383,7 +385,10 @@
             <p class="subtype">{{ subtype }}</p>
           </div>
 
-          <p class="title">{{ cardTitle }}</p>
+          <div class="fitty-parent">
+            <p class="title sized-fitty-card-title fit">{{ cardTitle }}</p>
+          </div>
+
           <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
             *ngIf="uniqueUnitKeyword(); else MultipleUnitKeyword">
 
@@ -405,7 +410,9 @@
 
         <ng-template #SizedSpellInfo>
           <div class="spell-info-container">
-            <p class="title">{{ cardTitle }}</p>
+            <div class="fitty-parent">
+              <p class="title sized-fitty-card-title fit">{{ cardTitle }}</p>
+            </div>
             <img class="spell-keyword-icon" [src]="'assets/keywords/full/' + spellKeyword + '.png'"
               *ngIf="uniqueSpellKeyword(); else MultipleSpellKeyword">
             <div class="sized-spell-description-element-ref" id="sized-spell-description-element-ref"></div>
