@@ -282,7 +282,7 @@
           margin-left: auto;
           margin-right: auto;
           width: 100%;
-          object-fit: cover;
+          object-fit: contain;
         }
       }
 
@@ -306,7 +306,7 @@
           display: none;
           margin-left: auto;
           margin-right: auto;
-          object-fit: cover;
+          object-fit: contain;
         }
       }
 
@@ -320,7 +320,7 @@
         border-top-left-radius: 41px;
         border-top-right-radius: 41px;
         overflow: hidden;
-		background-color: black;
+        background-color: black;
 
         .card-bottom-image {
           position: absolute;
@@ -679,7 +679,7 @@
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
       }
     }
 
@@ -701,7 +701,7 @@
         margin-left: auto;
         margin-right: auto;
         width: 500px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 50%;
       }
     }
@@ -716,7 +716,7 @@
       border-top-left-radius: 82px;
       border-top-right-radius: 82px;
       overflow: hidden;
-	  background-color: black;
+      background-color: black;
 
       .sized-card-bottom-image {
         position: absolute;
