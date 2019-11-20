@@ -122,7 +122,7 @@
         <div class="name">
           <p class="title">Card title</p>
           <label class="field a-field a-field_a1">
-            <input class="field__input a-field__input" [(ngModel)]="cardTitle">
+            <input class="field__input a-field__input" [(ngModel)]="cardTitle" (ngModelChange)="onTitleChange()">
             <span class="a-field__label-wrap">
               <span class="a-field__label"></span>
             </span>
@@ -274,7 +274,9 @@
             <p class="subtype">{{ subtype }}</p>
           </div>
 
-          <p class="title">{{ cardTitle }}</p>
+          <div class="fitty-parent">
+            <p class="title fitty-card-title fit">{{ cardTitle }}</p>
+          </div>
           <img class="unit-keyword-icon" [src]="'assets/keywords/full/' + getUniqueUnitKeyword() + '.png'"
             *ngIf="uniqueUnitKeyword(); else MultipleUnitKeyword">
 
@@ -322,10 +324,10 @@
           <img class="region-icon" [src]="'assets/regions/' + region + '.png'">
         </div>
       </div>
-		
-	  <div class="upload-container">
+
+      <div class="upload-container">
         <input class="uploader" id="uploader" type='file' (change)="upload();" />
-	    <button class="download" (click)="resetImages()" *ngIf="hasImage">X</button>
+        <button class="download" (click)="resetImages()" *ngIf="hasImage">X</button>
       </div>
 
       <div class="move-container" *ngIf="hasImage">

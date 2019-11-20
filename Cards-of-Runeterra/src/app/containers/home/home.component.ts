@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer, AfterViewInit } from '@angular/core';
 import { CardType } from 'src/app/models/card-type.model';
 import { Region } from 'src/app/models/region.model';
 import { Rarity } from 'src/app/models/rarity.model';
@@ -7,6 +7,7 @@ import { UnitKeywords } from 'src/app/models/unit-keywords.model';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import { Keywords } from 'src/app/models/keywords.model';
+import fitty from 'fitty';
 
 @Component({
   selector: 'cr-home',
@@ -14,7 +15,7 @@ import { Keywords } from 'src/app/models/keywords.model';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   reader: FileReader;
 
   mana: number;
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
 
   hasImage = false;
 
+  fits;
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
@@ -72,6 +74,13 @@ export class HomeComponent implements OnInit {
     this.spellKeywords.set(SpellKeywords.Overwhelm, false);
 
     this.spellKeyword = SpellKeywords.Burst;
+  }
+
+  ngAfterViewInit() {
+    var fittyElement = this.elementRef.nativeElement.querySelector('.fitty-card-title');
+    this.fits = fitty(fittyElement, { minSize: 10, maxSize: 30 })
+    this.fits.observeMutations = true;
+    this.fits.fit();
   }
 
   switchType(type: CardType) {
@@ -168,8 +177,8 @@ export class HomeComponent implements OnInit {
     this.spellKeyword = SpellKeywords.Burst;
     this.resetUnitKeywords();
     this.resetSpellKeywords();
-	this.resetImages();
-	this.resetDescription();
+    this.resetImages();
+    this.resetDescription();
   }
 
   resetUnitKeywords() {
@@ -196,8 +205,8 @@ export class HomeComponent implements OnInit {
     this.spellKeywords.set(SpellKeywords.Overwhelm, false);
   }
 
-  resetImages(){
-	let input: any = document.getElementById("uploader");
+  resetImages() {
+    let input: any = document.getElementById("uploader");
     input.value = "";
 
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
@@ -223,12 +232,12 @@ export class HomeComponent implements OnInit {
       bottomSizedElementRef.style.display = 'none';
       bottomSizedElementRef.src = "";
     }
-	
-	this.hasImage = false;
+
+    this.hasImage = false;
   }
-  
-  resetDescription(){
-	this.description = '';
+
+  resetDescription() {
+    this.description = '';
 
     var list = document.getElementById("description-element-ref");
     if (list) {
@@ -264,6 +273,13 @@ export class HomeComponent implements OnInit {
       });
     }
     this.onDescriptionChange(this.description);
+  }
+
+  onTitleChange() {
+    this.fits.unsubscribe();
+    var fittyElement = this.elementRef.nativeElement.querySelector('.fitty-card-title');
+    this.fits = fitty(fittyElement, { minSize: 10, maxSize: 30 })
+    this.fits.fit();
   }
 
   onDescriptionChange(description) {

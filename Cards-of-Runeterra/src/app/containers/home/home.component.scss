@@ -402,6 +402,17 @@
         text-align: center;
         z-index: 4;
 
+        .fitty-parent {
+          width: 272px;
+          overflow: visible;
+
+          .title {
+            width: 272px;
+            overflow: visible;
+            font-size: fit-width;
+          }
+        }
+
         .title,
         .description,
         .levelup {
