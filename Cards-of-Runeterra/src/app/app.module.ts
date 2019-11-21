@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './containers/home/home.component';
 import { materialImports } from './material.import';
+import { LongPress } from './long-press';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    LongPress
   ],
   imports: [
     BrowserModule,

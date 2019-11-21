@@ -347,15 +347,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       let newSizedWidth: string;
 
       if (option === 'in') {
-        newHeight = (cardImageElementRef.height + 20) + 'px';
-        newSizedHeight = (sizedCardImageElementRef.height + 40) + 'px';
-        newWidth = (cardImageElementRef.width + 20) + 'px';
-        newSizedWidth = (sizedCardImageElementRef.width + 40) + 'px';
+        newHeight = (cardImageElementRef.height + 10) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height + 20) + 'px';
+        newWidth = (cardImageElementRef.width + 10) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width + 20) + 'px';
       } else {
-        newHeight = (cardImageElementRef.height - 20) + 'px';
-        newSizedHeight = (sizedCardImageElementRef.height - 40) + 'px';
-        newWidth = (cardImageElementRef.width - 20) + 'px';
-        newSizedWidth = (sizedCardImageElementRef.width - 40) + 'px';
+        newHeight = (cardImageElementRef.height - 10) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height - 20) + 'px';
+        newWidth = (cardImageElementRef.width - 10) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width - 20) + 'px';
       }
 
       cardImageElementRef.style.height = newHeight;
@@ -364,7 +364,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       sizedCardImageElementRef.style.width = newSizedWidth;
     }
   }
-
+  
   move(direction: string) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
     var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
@@ -376,20 +376,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     let sizedLeft = parseInt(sizedCardImageElementRef.style.left) ? parseInt(sizedCardImageElementRef.style.left).toString() : '20';
 
     if (direction === 'up') {
-      top = (parseInt(top) - 20) + 'px';
-      sizedTop = (parseInt(sizedTop) - 40) + 'px';
+      top = (parseInt(top) - 10) + 'px';
+      sizedTop = (parseInt(sizedTop) - 20) + 'px';
     }
     if (direction === 'down') {
-      top = (parseInt(top) + 20) + 'px';
-      sizedTop = (parseInt(sizedTop) + 40) + 'px';
+      top = (parseInt(top) + 10) + 'px';
+      sizedTop = (parseInt(sizedTop) + 20) + 'px';
     }
     if (direction === 'right') {
-      left = (parseInt(left) + 20) + 'px';
-      sizedLeft = (parseInt(sizedLeft) + 40) + 'px';
+      left = (parseInt(left) + 10) + 'px';
+      sizedLeft = (parseInt(sizedLeft) + 20) + 'px';
     }
     if (direction === 'left') {
-      left = (parseInt(left) - 20) + 'px';
-      sizedLeft = (parseInt(sizedLeft) - 40) + 'px';
+      left = (parseInt(left) - 10) + 'px';
+      sizedLeft = (parseInt(sizedLeft) - 20) + 'px';
     }
 
     if (top) {
