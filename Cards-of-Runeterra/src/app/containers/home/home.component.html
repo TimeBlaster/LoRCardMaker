@@ -11,10 +11,10 @@
         <p class="title">Type</p>
 
         <div class="types-container">
-          <img class="card-type-icon" title="Champion" src="assets/types/champion.png" (click)="switchType(CardType.Champion)"
-            [class.selected]="type === CardType.Champion">
-          <img class="card-type-icon" title="Follower" src="assets/types/follower.png" (click)="switchType(CardType.Follower)"
-            [class.selected]="type === CardType.Follower">
+          <img class="card-type-icon" title="Champion" src="assets/types/champion.png"
+            (click)="switchType(CardType.Champion)" [class.selected]="type === CardType.Champion">
+          <img class="card-type-icon" title="Follower" src="assets/types/follower.png"
+            (click)="switchType(CardType.Follower)" [class.selected]="type === CardType.Follower">
           <img class="card-type-icon" title="Spell" src="assets/types/spell.png" (click)="switchType(CardType.Spell)"
             [class.selected]="type === CardType.Spell">
         </div>
@@ -142,10 +142,12 @@
         </div>
 
         <div class="tag-container">
-          <div class="font-container" title="Text inside tag appears blue" mat-stroked-button (click)="addColorTag('name')">
+          <div class="font-container" title="Text inside tag appears blue" mat-stroked-button
+            (click)="addColorTag('name')">
             <div class="name-font-color"></div>
           </div>
-          <div class="font-container" title="Text inside tag appears yellow" mat-stroked-button (click)="addColorTag('keyword')">
+          <div class="font-container" title="Text inside tag appears yellow" mat-stroked-button
+            (click)="addColorTag('keyword')">
             <div class="keyword-font-color"></div>
           </div>
 
@@ -183,32 +185,32 @@
         <p class="title">Region</p>
 
         <div class="regions-container">
-          <img class="region-icon" title="Demacia" src="assets/regions/demacia.png" (click)="switchRegion(Region.Demacia)"
-            [class.selected]="region === Region.Demacia">
-          <img class="region-icon" title="Freljord" src="assets/regions/freljord.png" (click)="switchRegion(Region.Freljord)"
-            [class.selected]="region === Region.Freljord">
+          <img class="region-icon" title="Demacia" src="assets/regions/demacia.png"
+            (click)="switchRegion(Region.Demacia)" [class.selected]="region === Region.Demacia">
+          <img class="region-icon" title="Freljord" src="assets/regions/freljord.png"
+            (click)="switchRegion(Region.Freljord)" [class.selected]="region === Region.Freljord">
           <img class="region-icon" title="Ionia" src="assets/regions/ionia.png" (click)="switchRegion(Region.Ionia)"
             [class.selected]="region === Region.Ionia">
           <img class="region-icon" title="Noxus" src="assets/regions/noxus.png" (click)="switchRegion(Region.Noxus)"
             [class.selected]="region === Region.Noxus">
-          <img class="region-icon" title="PiltoverZaun" src="assets/regions/piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)"
-            [class.selected]="region === Region.PiltoverZaun">
-          <img class="region-icon" title="ShadowIsles" src="assets/regions/shadowisles.png" (click)="switchRegion(Region.ShadowIsles)"
-            [class.selected]="region === Region.ShadowIsles">
-          <img class="region-icon" title="Bandlecity" src="assets/regions/bandlecity.png" (click)="switchRegion(Region.Bandlecity)"
-            [class.selected]="region === Region.Bandlecity">
-          <img class="region-icon" title="Bilgewater" src="assets/regions/bilgewater.png" (click)="switchRegion(Region.Bilgewater)"
-            [class.selected]="region === Region.Bilgewater">
+          <img class="region-icon" title="PiltoverZaun" src="assets/regions/piltoverzaun.png"
+            (click)="switchRegion(Region.PiltoverZaun)" [class.selected]="region === Region.PiltoverZaun">
+          <img class="region-icon" title="ShadowIsles" src="assets/regions/shadowisles.png"
+            (click)="switchRegion(Region.ShadowIsles)" [class.selected]="region === Region.ShadowIsles">
+          <img class="region-icon" title="Bandlecity" src="assets/regions/bandlecity.png"
+            (click)="switchRegion(Region.Bandlecity)" [class.selected]="region === Region.Bandlecity">
+          <img class="region-icon" title="Bilgewater" src="assets/regions/bilgewater.png"
+            (click)="switchRegion(Region.Bilgewater)" [class.selected]="region === Region.Bilgewater">
           <img class="region-icon" title="Ixtal" src="assets/regions/ixtal.png" (click)="switchRegion(Region.Ixtal)"
             [class.selected]="region === Region.Ixtal">
-          <img class="region-icon" title="Shurima" src="assets/regions/shurima.png" (click)="switchRegion(Region.Shurima)"
-            [class.selected]="region === Region.Shurima">
+          <img class="region-icon" title="Shurima" src="assets/regions/shurima.png"
+            (click)="switchRegion(Region.Shurima)" [class.selected]="region === Region.Shurima">
           <img class="region-icon" title="Targon" src="assets/regions/targon.png" (click)="switchRegion(Region.Targon)"
             [class.selected]="region === Region.Targon">
           <img class="region-icon" title="Void" src="assets/regions/void.png" (click)="switchRegion(Region.Void)"
             [class.selected]="region === Region.Void">
-          <img class="region-icon" title="Runeterra" src="assets/regions/runeterra.png" (click)="switchRegion(Region.Runeterra)"
-            [class.selected]="region === Region.Runeterra">
+          <img class="region-icon" title="Runeterra" src="assets/regions/runeterra.png"
+            (click)="switchRegion(Region.Runeterra)" [class.selected]="region === Region.Runeterra">
         </div>
       </div>
 
@@ -216,8 +218,9 @@
         <p class="title">Rarity</p>
 
         <div class="rarity-container">
-          <img class="rarity-icon" title="Champion" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
-            [class.selected]="rarity === Rarity.Champion" *ngIf="type === CardType.Champion">
+          <img class="rarity-icon" title="Champion" src="assets/rarities/champion.png"
+            (click)="switchRarity(Rarity.Champion)" [class.selected]="rarity === Rarity.Champion"
+            *ngIf="type === CardType.Champion">
           <img class="rarity-icon" title="LevelUp" src="assets/rarities/level.png" (click)="switchRarity(Rarity.Level)"
             [class.selected]="rarity === Rarity.Level" *ngIf="type === CardType.Champion">
           <img class="rarity-icon" title="None" src="assets/rarities/none.png" (click)="switchRarity(Rarity.None)"
@@ -239,6 +242,7 @@
     <div class="card-container">
       <div class="card" id="card">
         <div class="unit-card-image-container" *ngIf="type !== CardType.Spell; else spellImage">
+          <div class="card-gradient" *ngIf="hasImage"></div>
           <img class="card-image" />
         </div>
 
@@ -340,7 +344,8 @@
             <i class="material-icons" long-press (onLongPressing)="move('up')" (click)="move('up')">expand_less</i>
             <i class="material-icons" long-press (onLongPressing)="move('down')" (click)="move('down')">expand_more</i>
           </div>
-          <i class="material-icons" long-press (onLongPressing)="move('right')" (click)="move('right')">chevron_right</i>
+          <i class="material-icons" long-press (onLongPressing)="move('right')"
+            (click)="move('right')">chevron_right</i>
         </div>
         <i class="material-icons zoom" long-press (onLongPressing)="zoom('out')" (click)="zoom('out')">zoom_out</i>
       </div>
@@ -350,6 +355,7 @@
     <div class="sized-card-container">
       <div class="sized-card" id="sized-card">
         <div class="unit-card-image-container" *ngIf="type !== CardType.Spell; else sizedSpellImage">
+            <div class="card-gradient" *ngIf="hasImage"></div>
           <img class="sized-card-image" *ngIf="hasImage" />
         </div>
 

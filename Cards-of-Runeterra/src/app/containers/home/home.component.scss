@@ -272,6 +272,17 @@
         border-radius: 30px;
         overflow: hidden;
 
+        .card-gradient {
+          z-index: 3;
+          background-image: linear-gradient(to bottom, transparent, black);
+          position: absolute;
+          top: 250px;
+          left: 10px;
+          height: 262px;
+          width: 100%;
+          filter: blur(30px);
+        }
+
         .card-image {
           position: absolute;
           top: 15px;
@@ -507,7 +518,6 @@
         align-items: center;
         z-index: 4;
 
-
         .fitty-parent {
           width: 272px;
 
@@ -678,6 +688,17 @@
       border-radius: 60px;
       overflow: hidden;
 
+      .card-gradient {
+        z-index: 3;
+        background-image: linear-gradient(to bottom, transparent, black);
+        position: absolute;
+        top: 500px;
+        left: 20px;
+        height: 524px;
+        width: 100%;
+        filter: blur(60px);
+      }
+
       .sized-card-image {
         position: absolute;
         top: 30px;
@@ -694,24 +715,25 @@
 
     .spell-card-image-container {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50px;
+      left: 88px;
       z-index: 2;
-      width: 640px;
-      height: 40px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      overflow: hidden;
 
       .sized-card-image {
         position: absolute;
-        top: 50px;
-        left: 88px;
+        top: 0;
+        left: 0;
         height: 500px;
+        width: 500px;
         z-index: 2;
         display: none;
         margin-left: auto;
         margin-right: auto;
-        width: 500px;
         object-fit: contain;
-        border-radius: 50%;
       }
     }
 
