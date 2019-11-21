@@ -90,7 +90,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   switchType(type: CardType) {
-    this.type = type;
+    if((this.type === CardType.Spell && type !== CardType.Spell) || (this.type !== CardType.Spell && type === CardType.Spell))
+    {
+      let input: any = document.getElementById("uploader");
+      if (this.reader) {
+        this.reader.readAsDataURL(input.files[0]);
+      }  
+    }
 
     const nonChampionRarity: Rarity[] = [Rarity.None, Rarity.Common, Rarity.Rare, Rarity.Epic];
 
@@ -100,10 +106,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.rarity = Rarity.None;
     }
 
-    let input: any = document.getElementById("uploader");
-    if (this.reader) {
-      this.reader.readAsDataURL(input.files[0]);
-    }
+    this.type = type;
 
     setTimeout(() => {
       this.onDescriptionChange(this.description);
