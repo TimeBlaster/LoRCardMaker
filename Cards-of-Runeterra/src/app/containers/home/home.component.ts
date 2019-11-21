@@ -81,8 +81,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     var fittyElement = this.elementRef.nativeElement.querySelector('.fitty-card-title');
     var sizedFittyElement = this.elementRef.nativeElement.querySelector('.sized-fitty-card-title');
-    this.fits = fitty(fittyElement, { minSize: 10, maxSize: 30 })
-    this.sizedFits = fitty(sizedFittyElement, { minSize: 20, maxSize: 60 })
+    this.fits = fitty(fittyElement, { minSize: 16, maxSize: 30 })
+    this.sizedFits = fitty(sizedFittyElement, { minSize: 32, maxSize: 60 })
     this.fits.observeMutations = true;
     this.sizedFits.observeMutations = true;
     this.fits.fit();
@@ -296,8 +296,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.sizedFits.unsubscribe();
     var fittyElement = this.elementRef.nativeElement.querySelector('.fitty-card-title');
     var sizedFittyElement = this.elementRef.nativeElement.querySelector('.sized-fitty-card-title');
-    this.fits = fitty(fittyElement, { minSize: 10, maxSize: 30 })
-    this.sizedFits = fitty(sizedFittyElement, { minSize: 20, maxSize: 60 })
+    this.fits = fitty(fittyElement, { minSize: 16, maxSize: 30 })
+    this.sizedFits = fitty(sizedFittyElement, { minSize: 32, maxSize: 60 })
     this.fits.fit();
     this.sizedFits.fit();
   }
