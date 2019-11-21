@@ -11,11 +11,11 @@
         <p class="title">Type</p>
 
         <div class="types-container">
-          <img class="card-type-icon" src="assets/types/champion.png" (click)="switchType(CardType.Champion)"
+          <img class="card-type-icon" title="Champion" src="assets/types/champion.png" (click)="switchType(CardType.Champion)"
             [class.selected]="type === CardType.Champion">
-          <img class="card-type-icon" src="assets/types/follower.png" (click)="switchType(CardType.Follower)"
+          <img class="card-type-icon" title="Follower" src="assets/types/follower.png" (click)="switchType(CardType.Follower)"
             [class.selected]="type === CardType.Follower">
-          <img class="card-type-icon" src="assets/types/spell.png" (click)="switchType(CardType.Spell)"
+          <img class="card-type-icon" title="Spell" src="assets/types/spell.png" (click)="switchType(CardType.Spell)"
             [class.selected]="type === CardType.Spell">
         </div>
       </div>
@@ -60,17 +60,17 @@
       <div class="keywords">
         <div *ngIf="type === CardType.Spell; else Unit">
           <div class="keywords-container">
-            <img class="keyword-type-icon" src="assets/keywords/icons/burst.png"
+            <img class="keyword-type-icon" title="Burst" src="assets/keywords/icons/burst.png"
               (click)="switchSpellKeyword(SpellKeywords.Burst)"
               [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/fast.png"
+            <img class="keyword-type-icon" title="Fast" src="assets/keywords/icons/fast.png"
               (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/slow.png"
+            <img class="keyword-type-icon" title="Slow" src="assets/keywords/icons/slow.png"
               (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
+            <img class="keyword-type-icon" title="Fleeting" src="assets/keywords/icons/fleeting.png"
               (click)="switchSpellKeyword(SpellKeywords.Fleeting)"
               [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
+            <img class="keyword-type-icon" title="Overwhelm" src="assets/keywords/icons/overwhelm.png"
               (click)="switchSpellKeyword(SpellKeywords.Overwhelm)"
               [class.selected]="spellKeywords.get(SpellKeywords.Overwhelm)">
           </div>
@@ -78,40 +78,40 @@
 
         <ng-template #Unit>
           <div class="keywords-container">
-            <img class="keyword-type-icon" src="assets/keywords/icons/regeneration.png"
+            <img class="keyword-type-icon" title="Regeneration" src="assets/keywords/icons/regeneration.png"
               (click)="switchUnitKeyword(UnitKeywords.Regeneration)"
               [class.selected]="unitKeywords.get(UnitKeywords.Regeneration)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/lifesteal.png"
+            <img class="keyword-type-icon" title="Lifesteal" src="assets/keywords/icons/lifesteal.png"
               (click)="switchUnitKeyword(UnitKeywords.Lifesteal)"
               [class.selected]="unitKeywords.get(UnitKeywords.Lifesteal)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/challenger.png"
+            <img class="keyword-type-icon" title="Challenger" src="assets/keywords/icons/challenger.png"
               (click)="switchUnitKeyword(UnitKeywords.Challenger)"
               [class.selected]="unitKeywords.get(UnitKeywords.Challenger)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/fearsome.png"
+            <img class="keyword-type-icon" title="Fearsome" src="assets/keywords/icons/fearsome.png"
               (click)="switchUnitKeyword(UnitKeywords.Fearsome)"
               [class.selected]="unitKeywords.get(UnitKeywords.Fearsome)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/quick-attack.png"
+            <img class="keyword-type-icon" title="QuickAttack" src="assets/keywords/icons/quick-attack.png"
               (click)="switchUnitKeyword(UnitKeywords.QuickAttack)"
               [class.selected]="unitKeywords.get(UnitKeywords.QuickAttack)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/elusive.png"
+            <img class="keyword-type-icon" title="Elusive" src="assets/keywords/icons/elusive.png"
               (click)="switchUnitKeyword(UnitKeywords.Elusive)"
               [class.selected]="unitKeywords.get(UnitKeywords.Elusive)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/overwhelm.png"
+            <img class="keyword-type-icon" title="Overwhelm" src="assets/keywords/icons/overwhelm.png"
               (click)="switchUnitKeyword(UnitKeywords.Overwhelm)"
               [class.selected]="unitKeywords.get(UnitKeywords.Overwhelm)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/double-attack.png"
+            <img class="keyword-type-icon" title="DoubleAttack" src="assets/keywords/icons/double-attack.png"
               (click)="switchUnitKeyword(UnitKeywords.DoubleAttack)"
               [class.selected]="unitKeywords.get(UnitKeywords.DoubleAttack)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/ephemeral.png"
+            <img class="keyword-type-icon" title="Ephemeral" src="assets/keywords/icons/ephemeral.png"
               (click)="switchUnitKeyword(UnitKeywords.Ephemeral)"
               [class.selected]="unitKeywords.get(UnitKeywords.Ephemeral)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/fleeting.png"
+            <img class="keyword-type-icon" title="Fleeting" src="assets/keywords/icons/fleeting.png"
               (click)="switchUnitKeyword(UnitKeywords.Fleeting)"
               [class.selected]="unitKeywords.get(UnitKeywords.Fleeting)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/cant-block.png"
+            <img class="keyword-type-icon" title="CantBlock" src="assets/keywords/icons/cant-block.png"
               (click)="switchUnitKeyword(UnitKeywords.CantBlock)"
               [class.selected]="unitKeywords.get(UnitKeywords.CantBlock)">
-            <img class="keyword-type-icon" src="assets/keywords/icons/barrier.png"
+            <img class="keyword-type-icon" title="Barrier" src="assets/keywords/icons/barrier.png"
               (click)="switchUnitKeyword(UnitKeywords.Barrier)"
               [class.selected]="unitKeywords.get(UnitKeywords.Barrier)">
           </div>
@@ -142,15 +142,15 @@
         </div>
 
         <div class="tag-container">
-          <div class="font-container" mat-stroked-button (click)="addColorTag('name')">
+          <div class="font-container" title="Text inside tag appears blue" mat-stroked-button (click)="addColorTag('name')">
             <div class="name-font-color"></div>
           </div>
-          <div class="font-container" mat-stroked-button (click)="addColorTag('keyword')">
+          <div class="font-container" title="Text inside tag appears yellow" mat-stroked-button (click)="addColorTag('keyword')">
             <div class="keyword-font-color"></div>
           </div>
 
           <div *ngFor="let item of Keywords | keyvalue">
-            <img class="inline-icon" [src]='"assets/keywords/inline/" + item.value + ".png"'
+            <img class="inline-icon" [title]="item.value" [src]='"assets/keywords/inline/" + item.value + ".png"'
               (click)="addColorTag(item.value)">
           </div>
         </div>
@@ -183,31 +183,31 @@
         <p class="title">Region</p>
 
         <div class="regions-container">
-          <img class="region-icon" src="assets/regions/demacia.png" (click)="switchRegion(Region.Demacia)"
+          <img class="region-icon" title="Demacia" src="assets/regions/demacia.png" (click)="switchRegion(Region.Demacia)"
             [class.selected]="region === Region.Demacia">
-          <img class="region-icon" src="assets/regions/freljord.png" (click)="switchRegion(Region.Freljord)"
+          <img class="region-icon" title="Freljord" src="assets/regions/freljord.png" (click)="switchRegion(Region.Freljord)"
             [class.selected]="region === Region.Freljord">
-          <img class="region-icon" src="assets/regions/ionia.png" (click)="switchRegion(Region.Ionia)"
+          <img class="region-icon" title="Ionia" src="assets/regions/ionia.png" (click)="switchRegion(Region.Ionia)"
             [class.selected]="region === Region.Ionia">
-          <img class="region-icon" src="assets/regions/noxus.png" (click)="switchRegion(Region.Noxus)"
+          <img class="region-icon" title="Noxus" src="assets/regions/noxus.png" (click)="switchRegion(Region.Noxus)"
             [class.selected]="region === Region.Noxus">
-          <img class="region-icon" src="assets/regions/piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)"
+          <img class="region-icon" title="PiltoverZaun" src="assets/regions/piltoverzaun.png" (click)="switchRegion(Region.PiltoverZaun)"
             [class.selected]="region === Region.PiltoverZaun">
-          <img class="region-icon" src="assets/regions/shadowisles.png" (click)="switchRegion(Region.ShadowIsles)"
+          <img class="region-icon" title="ShadowIsles" src="assets/regions/shadowisles.png" (click)="switchRegion(Region.ShadowIsles)"
             [class.selected]="region === Region.ShadowIsles">
-          <img class="region-icon" src="assets/regions/bandlecity.png" (click)="switchRegion(Region.Bandlecity)"
+          <img class="region-icon" title="Bandlecity" src="assets/regions/bandlecity.png" (click)="switchRegion(Region.Bandlecity)"
             [class.selected]="region === Region.Bandlecity">
-          <img class="region-icon" src="assets/regions/bilgewater.png" (click)="switchRegion(Region.Bilgewater)"
+          <img class="region-icon" title="Bilgewater" src="assets/regions/bilgewater.png" (click)="switchRegion(Region.Bilgewater)"
             [class.selected]="region === Region.Bilgewater">
-          <img class="region-icon" src="assets/regions/ixtal.png" (click)="switchRegion(Region.Ixtal)"
+          <img class="region-icon" title="Ixtal" src="assets/regions/ixtal.png" (click)="switchRegion(Region.Ixtal)"
             [class.selected]="region === Region.Ixtal">
-          <img class="region-icon" src="assets/regions/shurima.png" (click)="switchRegion(Region.Shurima)"
+          <img class="region-icon" title="Shurima" src="assets/regions/shurima.png" (click)="switchRegion(Region.Shurima)"
             [class.selected]="region === Region.Shurima">
-          <img class="region-icon" src="assets/regions/targon.png" (click)="switchRegion(Region.Targon)"
+          <img class="region-icon" title="Targon" src="assets/regions/targon.png" (click)="switchRegion(Region.Targon)"
             [class.selected]="region === Region.Targon">
-          <img class="region-icon" src="assets/regions/void.png" (click)="switchRegion(Region.Void)"
+          <img class="region-icon" title="Void" src="assets/regions/void.png" (click)="switchRegion(Region.Void)"
             [class.selected]="region === Region.Void">
-          <img class="region-icon" src="assets/regions/runeterra.png" (click)="switchRegion(Region.Runeterra)"
+          <img class="region-icon" title="Runeterra" src="assets/regions/runeterra.png" (click)="switchRegion(Region.Runeterra)"
             [class.selected]="region === Region.Runeterra">
         </div>
       </div>
@@ -216,22 +216,22 @@
         <p class="title">Rarity</p>
 
         <div class="rarity-container">
-          <img class="rarity-icon" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
+          <img class="rarity-icon" title="Champion" src="assets/rarities/champion.png" (click)="switchRarity(Rarity.Champion)"
             [class.selected]="rarity === Rarity.Champion" *ngIf="type === CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/level.png" (click)="switchRarity(Rarity.Level)"
+          <img class="rarity-icon" title="LevelUp" src="assets/rarities/level.png" (click)="switchRarity(Rarity.Level)"
             [class.selected]="rarity === Rarity.Level" *ngIf="type === CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/none.png" (click)="switchRarity(Rarity.None)"
+          <img class="rarity-icon" title="None" src="assets/rarities/none.png" (click)="switchRarity(Rarity.None)"
             [class.selected]="rarity === Rarity.None" *ngIf="type !== CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/common.png" (click)="switchRarity(Rarity.Common)"
+          <img class="rarity-icon" title="Common" src="assets/rarities/common.png" (click)="switchRarity(Rarity.Common)"
             [class.selected]="rarity === Rarity.Common" *ngIf="type !== CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/rare.png" (click)="switchRarity(Rarity.Rare)"
+          <img class="rarity-icon" title="Rare" src="assets/rarities/rare.png" (click)="switchRarity(Rarity.Rare)"
             [class.selected]="rarity === Rarity.Rare" *ngIf="type !== CardType.Champion">
-          <img class="rarity-icon" src="assets/rarities/epic.png" (click)="switchRarity(Rarity.Epic)"
+          <img class="rarity-icon" title="Epic" src="assets/rarities/epic.png" (click)="switchRarity(Rarity.Epic)"
             [class.selected]="rarity === Rarity.Epic" *ngIf="type !== CardType.Champion">
         </div>
       </div>
 
-      <div class="reset-container">
+      <div class="reset-container" title="Resets all inputs">
         <button mat-stroked-button (click)="resetCard()">Reset</button>
       </div>
     </div>
