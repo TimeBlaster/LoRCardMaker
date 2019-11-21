@@ -90,12 +90,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   switchType(type: CardType) {
-    if((this.type === CardType.Spell && type !== CardType.Spell) || (this.type !== CardType.Spell && type === CardType.Spell))
-    {
+    if ((this.type === CardType.Spell && type !== CardType.Spell) || (this.type !== CardType.Spell && type === CardType.Spell)) {
       let input: any = document.getElementById("uploader");
       if (this.reader) {
         this.reader.readAsDataURL(input.files[0]);
-      }  
+      }
     }
 
     const nonChampionRarity: Rarity[] = [Rarity.None, Rarity.Common, Rarity.Rare, Rarity.Epic];
@@ -367,16 +366,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
       sizedCardImageElementRef.style.width = newSizedWidth;
     }
   }
-  
+
   move(direction: string) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
     var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
 
-    let top = parseInt(cardImageElementRef.style.top) ? parseInt(cardImageElementRef.style.top).toString() : '15';
-    let left = parseInt(cardImageElementRef.style.left) ? parseInt(cardImageElementRef.style.left).toString() : '10';
+    let left = parseInt(cardImageElementRef.style.left).toString();
+    let top = parseInt(cardImageElementRef.style.top).toString();
 
-    let sizedTop = parseInt(sizedCardImageElementRef.style.top) ? parseInt(sizedCardImageElementRef.style.top).toString() : '30';
-    let sizedLeft = parseInt(sizedCardImageElementRef.style.left) ? parseInt(sizedCardImageElementRef.style.left).toString() : '20';
+    if (left.toString() === 'NaN') {
+      left = '10';
+    }
+    if (top.toString() === 'NaN') {
+      top = '10';
+    }
+
+    let sizedTop = parseInt(sizedCardImageElementRef.style.top).toString();
+    let sizedLeft = parseInt(sizedCardImageElementRef.style.left).toString();
+
+    if (sizedTop.toString() === 'NaN') {
+      sizedTop = '30';
+    }
+    if (sizedLeft.toString() === 'NaN') {
+      sizedLeft = '20';
+    }
 
     if (direction === 'up') {
       top = (parseInt(top) - 10) + 'px';
@@ -451,7 +464,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getTitle(): string {
-    if(this.cardTitle)
+    if (this.cardTitle)
       return (this.cardTitle.match(/^ *$/) !== null ? 'customCard' : this.cardTitle) + '.png'
     else
       return 'customCard' + '.png';
