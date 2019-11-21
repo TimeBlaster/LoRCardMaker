@@ -423,6 +423,7 @@
           position: absolute;
           top: 5px;
           left: 79px;
+          width: 180px;
 
           .typing-bar {
             width: 180px;
@@ -434,8 +435,10 @@
             letter-spacing: 3px;
             text-align: center;
             text-transform: uppercase;
-            margin-top: -34px;
-            margin-left: 5px;
+            margin-top: -33px;
+            margin-left: 37px;
+            width: 110px;
+            overflow: hidden;
           }
         }
 
@@ -826,6 +829,7 @@
         position: absolute;
         top: 10px;
         left: 158px;
+        width: 360px;
 
         .typing-bar {
           width: 360px;
@@ -838,8 +842,10 @@
           text-align: center;
           text-transform: uppercase;
           margin-top: -66px;
-          margin-left: 10px;
+          margin-left: 74px;
           font-size: 31px;
+          width: 220px;
+          overflow: hidden;
         }
       }
 
