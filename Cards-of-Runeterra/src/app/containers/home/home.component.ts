@@ -338,7 +338,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  zoom(option: string) {
+  zoom(option: string, offset: number = 10) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
     var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
 
@@ -349,15 +349,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
       let newSizedWidth: string;
 
       if (option === 'in') {
-        newHeight = (cardImageElementRef.height + 10) + 'px';
-        newSizedHeight = (sizedCardImageElementRef.height + 20) + 'px';
-        newWidth = (cardImageElementRef.width + 10) + 'px';
-        newSizedWidth = (sizedCardImageElementRef.width + 20) + 'px';
+        newHeight = (cardImageElementRef.height + offset) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height + offset * 2) + 'px';
+        newWidth = (cardImageElementRef.width + offset) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width + offset * 2) + 'px';
+        this.move('left', 5);
+        this.move('up', 5);
       } else {
-        newHeight = (cardImageElementRef.height - 10) + 'px';
-        newSizedHeight = (sizedCardImageElementRef.height - 20) + 'px';
-        newWidth = (cardImageElementRef.width - 10) + 'px';
-        newSizedWidth = (sizedCardImageElementRef.width - 20) + 'px';
+        newHeight = (cardImageElementRef.height - offset) + 'px';
+        newSizedHeight = (sizedCardImageElementRef.height - offset * 2) + 'px';
+        newWidth = (cardImageElementRef.width - offset) + 'px';
+        newSizedWidth = (sizedCardImageElementRef.width - offset * 2) + 'px';
+        this.move('right', 5);
+        this.move('down', 5);
       }
 
       cardImageElementRef.style.height = newHeight;
@@ -367,7 +371,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  move(direction: string) {
+  move(direction: string, offset: number = 10) {
     var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
     var sizedCardImageElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
 
@@ -392,20 +396,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     if (direction === 'up') {
-      top = (parseInt(top) - 10) + 'px';
-      sizedTop = (parseInt(sizedTop) - 20) + 'px';
+      top = (parseInt(top) - offset) + 'px';
+      sizedTop = (parseInt(sizedTop) - offset * 2) + 'px';
     }
     if (direction === 'down') {
-      top = (parseInt(top) + 10) + 'px';
-      sizedTop = (parseInt(sizedTop) + 20) + 'px';
+      top = (parseInt(top) + offset) + 'px';
+      sizedTop = (parseInt(sizedTop) + offset * 2) + 'px';
     }
     if (direction === 'right') {
-      left = (parseInt(left) + 10) + 'px';
-      sizedLeft = (parseInt(sizedLeft) + 20) + 'px';
+      left = (parseInt(left) + offset) + 'px';
+      sizedLeft = (parseInt(sizedLeft) + offset * 2) + 'px';
     }
     if (direction === 'left') {
-      left = (parseInt(left) - 10) + 'px';
-      sizedLeft = (parseInt(sizedLeft) - 20) + 'px';
+      left = (parseInt(left) - offset) + 'px';
+      sizedLeft = (parseInt(sizedLeft) - offset * 2) + 'px';
     }
 
     if (top) {
