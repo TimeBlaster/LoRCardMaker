@@ -428,37 +428,66 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     this.reader.onload = (e: any) => {
-      var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
-      var bottomCardImageElementRef = this.elementRef.nativeElement.querySelector('.card-bottom-image');
-      if (cardImageElementRef) {
-        cardImageElementRef.style.height = '';
-        cardImageElementRef.style.width = '';
-        cardImageElementRef.style.top = '';
-        cardImageElementRef.style.left = '';
-        cardImageElementRef.style.display = 'block';
-        cardImageElementRef.src = e.target.result;
-      }
+      var image = new Image();
+      image.src = e.target.result;
 
-      if (bottomCardImageElementRef) {
-        bottomCardImageElementRef.style.display = 'block';
-        bottomCardImageElementRef.src = e.target.result;
-      }
+      image.onload = () => {
+        var cardImageElementRef = this.elementRef.nativeElement.querySelector('.card-image');
+        if (cardImageElementRef) {
+          cardImageElementRef.style.height = '';
+          cardImageElementRef.style.width = '';
+          cardImageElementRef.style.top = '';
+          cardImageElementRef.style.left = '';
+          cardImageElementRef.style.display = 'block';
+          cardImageElementRef.src = image.src;
 
-      var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
-      var bottomSizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-bottom-image');
-      if (sizedElementRef) {
-        cardImageElementRef.style.height = '';
-        cardImageElementRef.style.width = '';
-        cardImageElementRef.style.top = '';
-        cardImageElementRef.style.left = '';
-        sizedElementRef.style.display = 'block';
-        sizedElementRef.src = e.target.result;
-      }
+          if(this.type !== CardType.Spell)
+          {
+            cardImageElementRef.style.height = (image.height / 2).toString() + 'px';
+            cardImageElementRef.style.width = (image.width / 2).toString() + 'px';
 
-      if (bottomSizedElementRef) {
-        bottomSizedElementRef.style.display = 'block';
-        bottomSizedElementRef.src = e.target.result;
-      }
+            var top = -(image.height / 2 - 466) / 2;
+            cardImageElementRef.style.top = (top).toString() + 'px';
+
+            var left = -(image.width / 2 - 318) / 2;
+            cardImageElementRef.style.left = (left).toString() + 'px';
+          }          
+        }
+
+        var sizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-image');
+        if (sizedElementRef) {
+          sizedElementRef.style.height = '';
+          sizedElementRef.style.width = '';
+          sizedElementRef.style.top = '';
+          sizedElementRef.style.left = '';
+          sizedElementRef.style.display = 'block';
+          sizedElementRef.src = image.src;
+
+          if(this.type !== CardType.Spell)
+          {
+            sizedElementRef.style.height = image.height.toString() + 'px';
+            sizedElementRef.style.width = image.width.toString() + 'px';
+
+            var top = -(image.height - 932) / 2;
+            sizedElementRef.style.top = (top).toString() + 'px';
+
+            var left = -(image.width - 636) / 2;
+            sizedElementRef.style.left = (left).toString() + 'px';
+          }
+        }
+
+        var bottomCardImageElementRef = this.elementRef.nativeElement.querySelector('.card-bottom-image');
+        if (bottomCardImageElementRef) {
+          bottomCardImageElementRef.style.display = 'block';
+          bottomCardImageElementRef.src = image.src;
+        }
+
+        var bottomSizedElementRef = this.elementRef.nativeElement.querySelector('.sized-card-bottom-image');
+        if (bottomSizedElementRef) {
+          bottomSizedElementRef.style.display = 'block';
+          bottomSizedElementRef.src = image.src;
+        }
+      };
     };
 
     let input: any = document.getElementById("uploader");
