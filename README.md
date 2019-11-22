@@ -7,7 +7,7 @@ You can set your own images, stats, keywords, and special abilities.
 Instead of just the 6 regions that are currently in the game, you can select any region in Runeterra including Runeterra itself.  
 Use it to create a card for your Champion or make something entirely new.  
 Showcase buffs or nerfs you would like to see happen or just make some funny stuff.  
-Download your favorite ones and share them on Reddit or wherever you like.
+Download your favorite ones and share them on Reddit or wherever you like.  
 Try it out at: [https://lorcardmaker.com](https://lorcardmaker.com)
 
 ## Local Usage
