@@ -64,9 +64,14 @@
               (click)="switchSpellKeyword(SpellKeywords.Burst)"
               [class.selected]="spellKeywords.get(SpellKeywords.Burst)">
             <img class="keyword-type-icon" title="Fast" src="assets/keywords/icons/fast.png"
-              (click)="switchSpellKeyword(SpellKeywords.Fast)" [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
+              (click)="switchSpellKeyword(SpellKeywords.Fast)" 
+              [class.selected]="spellKeywords.get(SpellKeywords.Fast)">
             <img class="keyword-type-icon" title="Slow" src="assets/keywords/icons/slow.png"
-              (click)="switchSpellKeyword(SpellKeywords.Slow)" [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
+              (click)="switchSpellKeyword(SpellKeywords.Slow)" 
+              [class.selected]="spellKeywords.get(SpellKeywords.Slow)">
+              <img class="keyword-type-icon" title="Skill" src="assets/keywords/icons/skill.png"
+              (click)="switchSpellKeyword(SpellKeywords.Skill)"
+              [class.selected]="spellKeywords.get(SpellKeywords.Skill)">
             <img class="keyword-type-icon" title="Fleeting" src="assets/keywords/icons/fleeting.png"
               (click)="switchSpellKeyword(SpellKeywords.Fleeting)"
               [class.selected]="spellKeywords.get(SpellKeywords.Fleeting)">
@@ -114,6 +119,13 @@
             <img class="keyword-type-icon" title="Barrier" src="assets/keywords/icons/barrier.png"
               (click)="switchUnitKeyword(UnitKeywords.Barrier)"
               [class.selected]="unitKeywords.get(UnitKeywords.Barrier)">
+            <img class="keyword-type-icon" title="Tough" src="assets/keywords/icons/tough.png"
+              (click)="switchUnitKeyword(UnitKeywords.Tough)"
+              [class.selected]="unitKeywords.get(UnitKeywords.Tough)">
+            <img class="keyword-type-icon" title="Trap" src="assets/keywords/icons/trap.png"
+              (click)="switchUnitKeyword(UnitKeywords.Trap)"
+              [class.selected]="unitKeywords.get(UnitKeywords.Trap)">
+
           </div>
         </ng-template>
       </div>

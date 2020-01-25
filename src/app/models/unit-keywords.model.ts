@@ -11,5 +11,6 @@ export enum UnitKeywords {
   Lifesteal = 'lifesteal',
   Barrier = 'barrier',
   DoubleAttack = 'double-attack',
-  Fleeting = 'fleeting'
+  Fleeting = 'fleeting',
+  Trap = 'trap'
 }

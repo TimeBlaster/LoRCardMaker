@@ -67,11 +67,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.unitKeywords.set(UnitKeywords.Barrier, false);
     this.unitKeywords.set(UnitKeywords.DoubleAttack, false);
     this.unitKeywords.set(UnitKeywords.Fleeting, false);
+    this.unitKeywords.set(UnitKeywords.Trap, false);
 
     this.spellKeywords = new Map<SpellKeywords, boolean>();
     this.spellKeywords.set(SpellKeywords.Burst, true);
     this.spellKeywords.set(SpellKeywords.Fast, false);
     this.spellKeywords.set(SpellKeywords.Slow, false);
+    this.spellKeywords.set(SpellKeywords.Skill, false);
     this.spellKeywords.set(SpellKeywords.Fleeting, false);
     this.spellKeywords.set(SpellKeywords.Overwhelm, false);
 
@@ -125,11 +127,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   switchSpellKeyword(keyword: SpellKeywords) {
-    if (keyword === SpellKeywords.Burst || keyword === SpellKeywords.Fast || keyword === SpellKeywords.Slow) {
+    if (keyword === SpellKeywords.Burst || keyword === SpellKeywords.Fast || keyword === SpellKeywords.Slow || keyword === SpellKeywords.Skill) {
       this.spellKeyword = keyword;
       this.spellKeywords.set(SpellKeywords.Burst, keyword === SpellKeywords.Burst);
       this.spellKeywords.set(SpellKeywords.Fast, keyword === SpellKeywords.Fast);
       this.spellKeywords.set(SpellKeywords.Slow, keyword === SpellKeywords.Slow);
+      this.spellKeywords.set(SpellKeywords.Skill, keyword === SpellKeywords.Skill);
     } else {
       this.spellKeywords.set(keyword, !this.spellKeywords.get(keyword));
     }
